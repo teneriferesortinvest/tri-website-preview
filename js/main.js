@@ -239,22 +239,67 @@
   });
 })();
 
-/* ---------- mobile hamburger toggle ---------- */
+/* ---------- mobile hamburger toggle ----------
+   Makes the off-canvas drawer truly hidden from assistive tech and
+   keyboard focus when closed (via `inert`), restores focus to the
+   hamburger when closing.
+*/
 (() => {
   const btn = document.getElementById('navHamburger');
   const nav = document.querySelector('.nav');
   if (!btn || !nav) return;
-  btn.addEventListener('click', () => {
-    const open = nav.classList.toggle('nav--open');
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-  // Close when clicking a menu link
-  nav.querySelectorAll('.nav__menu a').forEach(a => a.addEventListener('click', () => {
+  const menu = nav.querySelector('.nav__menu');
+  const mql = matchMedia('(max-width: 860px)');
+
+  function syncInert() {
+    if (!menu) return;
+    const isMobile = mql.matches;
+    const isOpen = nav.classList.contains('nav--open');
+    // On mobile: inert when closed. On desktop: never inert.
+    if (isMobile && !isOpen) {
+      menu.setAttribute('inert', '');
+      menu.setAttribute('aria-hidden', 'true');
+    } else {
+      menu.removeAttribute('inert');
+      menu.removeAttribute('aria-hidden');
+    }
+  }
+
+  function open() {
+    nav.classList.add('nav--open');
+    btn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    syncInert();
+    // Move focus into the drawer
+    const firstLink = menu && menu.querySelector('a');
+    if (firstLink) firstLink.focus();
+  }
+
+  function close() {
     nav.classList.remove('nav--open');
     btn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
-  }));
+    syncInert();
+    btn.focus(); // return focus to the trigger
+  }
+
+  btn.addEventListener('click', () => {
+    nav.classList.contains('nav--open') ? close() : open();
+  });
+
+  if (menu) {
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  }
+
+  // Close on Escape while the drawer is open
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('nav--open')) close();
+  });
+
+  // Re-sync inert when crossing the mobile/desktop breakpoint
+  if (mql.addEventListener) mql.addEventListener('change', syncInert);
+  else mql.addListener(syncInert);
+  syncInert();
 })();
 
 /* Native <details> now handles reel open/close — legacy mobile-reel-toggle JS removed. */

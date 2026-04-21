@@ -2785,7 +2785,17 @@ a.contact-info__value:hover { color: var(--warm-brown); }
 }
 .property-card:hover { transform: translateY(-3px); }
 .property-card__image {
+  position: relative;
   overflow: hidden;
+}
+.property-card__image > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 .property-card__image::after {
   content: "";
@@ -2794,8 +2804,23 @@ a.contact-info__value:hover { color: var(--warm-brown); }
   background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.18) 100%);
   opacity: 0;
   transition: opacity 320ms ease;
+  pointer-events: none;
 }
 .property-card:hover .property-card__image::after { opacity: 1; }
+
+.project-card__image {
+  position: relative;
+  overflow: hidden;
+}
+.project-card__image > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .property-card,
