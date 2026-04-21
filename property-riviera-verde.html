@@ -143,11 +143,11 @@
       <aside class="pdp-contact-nx__card">
         <h3 class="pdp-contact-nx__cardtitle"><span class="lang-en">Request the dossier</span><span class="lang-es">Solicitar el dossier</span></h3>
         <p class="pdp-contact-nx__cardsub"><span class="lang-en">Pricing, floor plans, specifications, reservation status — we'll reply within a day.</span><span class="lang-es">Precios, planos, especificaciones, estado de reservas — respondemos en el día.</span></p>
-        <form class="pdp-form">
-          <label><span class="lang-en">Full name</span><span class="lang-es">Nombre completo</span><input type="text" required /></label>
-          <label><span class="lang-en">Email</span><span class="lang-es">Email</span><input type="email" required /></label>
-          <label><span class="lang-en">Phone</span><span class="lang-es">Teléfono</span><input type="tel" /></label>
-          <label><span class="lang-en">Your message</span><span class="lang-es">Su mensaje</span><textarea rows="4"></textarea></label>
+        <form class="pdp-form" data-wa-form>
+          <label for="pdpName"><span class="lang-en">Full name</span><span class="lang-es">Nombre completo</span><input type="text" name="name" id="pdpName" autocomplete="name" required /></label>
+          <label for="pdpEmail"><span class="lang-en">Email</span><span class="lang-es">Email</span><input type="email" name="email" id="pdpEmail" autocomplete="email" required /></label>
+          <label for="pdpPhone"><span class="lang-en">Phone</span><span class="lang-es">Teléfono</span><input type="tel" name="phone" id="pdpPhone" autocomplete="tel" /></label>
+          <label for="pdpMessage"><span class="lang-en">Your message</span><span class="lang-es">Su mensaje</span><textarea name="message" id="pdpMessage" rows="4"></textarea></label>
           <button type="submit" class="btn btn--primary"><span class="lang-en">Send message</span><span class="lang-es">Enviar mensaje</span></button>
         </form>
       </aside>

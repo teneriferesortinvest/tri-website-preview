@@ -29,25 +29,98 @@
   }
 })();
 
-/* ---------- hero IG-reel carousel ---------- */
+/* ---------- forms → WhatsApp (no backend yet) ----------
+   Any <form data-wa-form> intercepts submit, builds a message with
+   the field values + document.title for context, opens wa.me.
+*/
+(() => {
+  const WA_NUMBER = '34659003377';
+  document.querySelectorAll('form[data-wa-form]').forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const name    = (fd.get('name')    || '').toString().trim();
+      const email   = (fd.get('email')   || '').toString().trim();
+      const phone   = (fd.get('phone')   || '').toString().trim();
+      const message = (fd.get('message') || '').toString().trim();
+
+      // Page context: property name from <title> ("Villa Bali — Tenerife Resort Invest" → "Villa Bali")
+      const title = (document.title || '').split('—')[0].trim();
+      const isPropertyPage = /property-/.test(location.pathname);
+
+      const lines = [];
+      lines.push(`Hola Stazio, soy ${name || '...'}.`);
+      if (isPropertyPage && title) {
+        lines.push(`Me interesa: ${title}.`);
+      }
+      if (message) {
+        lines.push('');
+        lines.push(message);
+      }
+      lines.push('');
+      lines.push(`Contacto: ${email}${phone ? ' · ' + phone : ''}`);
+
+      const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
+      window.open(url, '_blank', 'noopener');
+    });
+  });
+})();
+
+/* ---------- hero IG-reel carousel ----------
+   Lazy: videos stay preload="none" until the <details> panel is open.
+   Only the active video is preloaded; advancing swaps preload between old/new.
+*/
 (() => {
   const reel = document.getElementById('heroReel');
   if (!reel) return;
+  const panel = reel.closest('details'); // hero__right is the <details> wrapping the reel
   const videos = Array.from(reel.querySelectorAll('.reel-video'));
   const bars   = Array.from(reel.querySelectorAll('.reel-progress__bar'));
   const next   = document.getElementById('reelNext');
-  const PAUSE_MS = 1000;                  // 1-second pause between slides
+  const PAUSE_MS = 1000;
   let current = 0;
-  let progressInterval = null;
+  let wired = false;
 
-  // Autoplay with sound-off works on iOS; guard for autoplay-rejection
-  videos[0].play().catch(() => { /* ignore */ });
-  wireVideoEnd(videos[0]);
+  if (next) next.addEventListener('click', () => { if (isOpen()) advance(); });
+  if (panel) {
+    panel.addEventListener('toggle', () => {
+      if (isOpen()) startReel();
+      else stopReel();
+    });
+    // If the panel is already open on desktop (default), start now.
+    if (isOpen()) startReel();
+  }
 
-  next.addEventListener('click', () => advance());
+  function isOpen() { return !panel || panel.open; }
+
+  function startReel() {
+    const v = videos[current];
+    if (!v) return;
+    v.preload = 'auto';
+    v.classList.add('is-active');
+    if (bars[current]) bars[current].classList.add('is-active');
+    v.play().catch(() => { /* autoplay might be blocked; user can tap */ });
+    wireVideoEnd(v);
+  }
+
+  function stopReel() {
+    videos.forEach((v, i) => {
+      v.pause();
+      v.currentTime = 0;
+      v.preload = 'none';
+      v.classList.remove('is-active');
+      if (bars[i]) {
+        bars[i].classList.remove('is-active', 'is-done');
+        bars[i].style.setProperty('--reel-progress', 0);
+      }
+    });
+    current = 0;
+  }
 
   function wireVideoEnd(v) {
-    v.addEventListener('ended', onEnded, { once: true });
+    if (v.dataset.wired) return;
+    v.dataset.wired = '1';
+    v.addEventListener('ended', onEnded);
     v.addEventListener('timeupdate', updateProgress);
   }
 
@@ -55,33 +128,39 @@
     const v = videos[current];
     if (!v || !v.duration) return;
     const pct = v.currentTime / v.duration;
-    bars[current].style.setProperty('--reel-progress', pct);
+    if (bars[current]) bars[current].style.setProperty('--reel-progress', pct);
   }
 
   function onEnded() {
-    videos[current].removeEventListener('timeupdate', updateProgress);
-    bars[current].classList.add('is-done');
-    bars[current].classList.remove('is-active');
-    // 1-second pause before advancing
-    setTimeout(() => advance(), PAUSE_MS);
+    if (bars[current]) {
+      bars[current].classList.add('is-done');
+      bars[current].classList.remove('is-active');
+    }
+    setTimeout(() => { if (isOpen()) advance(); }, PAUSE_MS);
   }
 
   function advance() {
     const prev = current;
     current = (current + 1) % videos.length;
 
-    // Reset the (now previous) video + progress bar for next cycle
-    videos[prev].classList.remove('is-active');
-    videos[prev].pause();
-    videos[prev].currentTime = 0;
-    bars[prev].classList.remove('is-active', 'is-done');
-    bars[prev].style.setProperty('--reel-progress', 0);
+    // Retire previous
+    const pv = videos[prev];
+    pv.classList.remove('is-active');
+    pv.pause();
+    pv.currentTime = 0;
+    pv.preload = 'none';
+    if (bars[prev]) {
+      bars[prev].classList.remove('is-active', 'is-done');
+      bars[prev].style.setProperty('--reel-progress', 0);
+    }
 
-    // Activate next slide
-    videos[current].classList.add('is-active');
-    bars[current].classList.add('is-active');
-    videos[current].play().catch(() => {});
-    wireVideoEnd(videos[current]);
+    // Activate next
+    const nv = videos[current];
+    nv.preload = 'auto';
+    nv.classList.add('is-active');
+    if (bars[current]) bars[current].classList.add('is-active');
+    nv.play().catch(() => {});
+    wireVideoEnd(nv);
   }
 })();
 

@@ -3155,6 +3155,16 @@ a.contact-info__value:hover { color: var(--warm-brown); }
 }
 @media (max-width: 860px) {
   .hero__actions { display: none !important; }
+  /* Center the "What we offer" block on iPhone */
+  .home-offer              { text-align: center; }
+  .home-offer__inner       { text-align: center; margin: 0 auto; }
+  .home-offer__tagline,
+  .home-offer__tagline span,
+  .home-offer__sub,
+  .home-offer__sub span    { text-align: center !important; display: block; }
+  /* Drop the forced line break — let the tagline flow naturally and centre line-by-line */
+  .home-offer__tagline br  { display: none; }
+  .home-offer__actions     { justify-content: center; }
 }
 
 /* Mobile: tighten the gap between each home-row summary and its section-head below */

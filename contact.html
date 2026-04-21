@@ -82,35 +82,35 @@
 
       <!-- Right: form -->
       <div class="contact-form">
-        <form class="form">
+        <form class="form" data-wa-form>
           <div class="form__row">
-            <label class="form__label"><span class="lang-en">Your name</span><span class="lang-es">Su nombre</span></label>
-            <input type="text" class="form__input" placeholder="" required />
+            <label class="form__label" for="contactName"><span class="lang-en">Your name</span><span class="lang-es">Su nombre</span></label>
+            <input type="text" name="name" id="contactName" class="form__input" autocomplete="name" required />
           </div>
 
           <div class="form__row">
-            <label class="form__label"><span class="lang-en">Email</span><span class="lang-es">Email</span></label>
-            <input type="email" class="form__input" placeholder="" required />
+            <label class="form__label" for="contactEmail"><span class="lang-en">Email</span><span class="lang-es">Email</span></label>
+            <input type="email" name="email" id="contactEmail" class="form__input" autocomplete="email" required />
           </div>
 
           <div class="form__row">
-            <label class="form__label"><span class="lang-en">Phone (optional)</span><span class="lang-es">Teléfono (opcional)</span></label>
-            <input type="tel" class="form__input" placeholder="" />
+            <label class="form__label" for="contactPhone"><span class="lang-en">Phone (optional)</span><span class="lang-es">Teléfono (opcional)</span></label>
+            <input type="tel" name="phone" id="contactPhone" class="form__input" autocomplete="tel" />
           </div>
 
           <div class="form__row">
-            <label class="form__label"><span class="lang-en">What are you after?</span><span class="lang-es">¿Qué busca?</span></label>
-            <textarea class="form__input form__input--area" rows="5" placeholder=""></textarea>
+            <label class="form__label" for="contactMessage"><span class="lang-en">What are you after?</span><span class="lang-es">¿Qué busca?</span></label>
+            <textarea name="message" id="contactMessage" class="form__input form__input--area" rows="5"></textarea>
           </div>
 
           <button type="submit" class="btn btn--primary form__submit">
-            <span class="lang-en">Send</span>
-            <span class="lang-es">Enviar</span>
+            <span class="lang-en">Send via WhatsApp</span>
+            <span class="lang-es">Enviar por WhatsApp</span>
           </button>
 
           <p class="form__note">
-            <span class="lang-en">We reply within 24 hours. No newsletter, no mailing list.</span>
-            <span class="lang-es">Respondemos en 24 horas. Sin newsletter, sin lista de correo.</span>
+            <span class="lang-en">Opens WhatsApp with your message prefilled. Stazio replies within 24 hours.</span>
+            <span class="lang-es">Abre WhatsApp con su mensaje listo. Stazio responde en 24 horas.</span>
           </p>
         </form>
       </div>
