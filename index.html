@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Tenerife Resort Invest — Homes in South Tenerife, chosen with care</title>
+  <meta name="description" content="Forty-five years of careful work finding homes in South Tenerife. Luxury villas, apartments, land and projects in Adeje, La Caleta, Costa Adeje and Arona." />
+
+  <!-- Brand v2 fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo+Black&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- =========== NAV =========== -->
+  <header class="nav" id="site-nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__wordmark">Tenerife Resort Invest</span>
+      </a>
+
+      <nav class="nav__menu">
+        <a href="properties.html">Properties</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">Our story</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button class="lang-btn is-active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+        <a href="contact.html" class="nav__cta">Contact us</a>
+      <button class="nav__hamburger" id="navHamburger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <!-- =========== HERO (split layout: words left, IG reel right) =========== -->
+  <section class="hero">
+    <div class="hero__inner">
+
+      <div class="hero__left">
+        <h1 class="hero__tagline">
+          <span class="lang-en">Villas, apartments, land<br/>&amp; projects in <em>South Tenerife</em>.</span>
+          <span class="lang-es">Villas, pisos, terrenos<br/>y proyectos en <em>el sur de Tenerife</em>.</span>
+        </h1>
+
+        <p class="hero__sub">
+          <span class="lang-en">One family agency. Forty-five years. A broad portfolio — from first apartments to flagship villas — curated, not dumped.</span>
+          <span class="lang-es">Una agencia familiar. Cuarenta y cinco años. Una cartera amplia — desde pisos de entrada hasta villas emblemáticas — seleccionada, no volcada.</span>
+        </p>
+
+        <div class="hero__actions">
+          <a href="https://wa.me/34659003377" class="btn btn--primary">
+            <span class="lang-en">Talk to Stazio</span>
+            <span class="lang-es">Hablar con Stazio</span>
+          </a>
+          <a href="properties.html" class="btn btn--ghost">
+            <span class="lang-en">See properties</span>
+            <span class="lang-es">Ver propiedades</span>
+          </a>
+        </div>
+
+        <a href="#properties" class="hero__scroll" id="heroScroll">
+          <span class="lang-en">Scroll ↓</span>
+          <span class="lang-es">Siga ↓</span>
+        </a>
+      </div>
+
+      <details class="hero__right home-row home-row--reel">
+        <summary class="home-row__btn"><span class="home-row__label"><span class="lang-en">Watch our reels</span><span class="lang-es">Ver los reels</span></span></summary>
+        <div class="hero__reel" id="heroReel" aria-label="Featured drone reels">
+          <!-- Villa Arizona openers (from landing page, kept per user request) -->
+          <video class="reel-video is-active" data-slide="0" src="img/reels/arizona_a.mp4" muted playsinline preload="metadata"></video>
+          <video class="reel-video" data-slide="1" src="img/reels/arizona_b.mp4" muted playsinline preload="metadata"></video>
+          <!-- Drone selection from the WEBSITE/DJI folder -->
+          <video class="reel-video" data-slide="2" src="img/reels/reel_01.mp4" muted playsinline preload="metadata"></video>
+          <video class="reel-video" data-slide="3" src="img/reels/reel_05.mp4" muted playsinline preload="metadata"></video>
+          <video class="reel-video" data-slide="4" src="img/reels/reel_09.mp4" muted playsinline preload="metadata"></video>
+          <video class="reel-video" data-slide="5" src="img/reels/reel_13.mp4" muted playsinline preload="metadata"></video>
+          <video class="reel-video" data-slide="6" src="img/reels/reel_17.mp4" muted playsinline preload="metadata"></video>
+          <video class="reel-video" data-slide="7" src="img/reels/reel_21.mp4" muted playsinline preload="metadata"></video>
+          <video class="reel-video" data-slide="8" src="img/reels/reel_25.mp4" muted playsinline preload="metadata"></video>
+          <video class="reel-video" data-slide="9" src="img/reels/reel_29.mp4" muted playsinline preload="metadata"></video>
+
+          <div class="reel-progress" aria-hidden="true">
+            <span class="reel-progress__bar is-active"></span>
+            <span class="reel-progress__bar"></span>
+            <span class="reel-progress__bar"></span>
+            <span class="reel-progress__bar"></span>
+            <span class="reel-progress__bar"></span>
+            <span class="reel-progress__bar"></span>
+            <span class="reel-progress__bar"></span>
+            <span class="reel-progress__bar"></span>
+            <span class="reel-progress__bar"></span>
+            <span class="reel-progress__bar"></span>
+          </div>
+
+          <button class="reel-arrow reel-arrow--next" id="reelNext" aria-label="Next reel">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- =========== WHAT WE OFFER (mirrors the hero tagline on mobile) =========== -->
+  <details class="home-row">
+  <summary class="home-row__btn"><span class="home-row__label"><span class="lang-en">What we offer</span><span class="lang-es">Qué ofrecemos</span></span></summary>
+  <section class="home-offer">
+    <div class="home-offer__inner">
+      <h2 class="home-offer__tagline">
+        <span class="lang-en">Villas, apartments, land<br/>&amp; projects in <em>South Tenerife</em>.</span>
+        <span class="lang-es">Villas, pisos, terrenos<br/>y proyectos en <em>el sur de Tenerife</em>.</span>
+      </h2>
+      <p class="home-offer__sub">
+        <span class="lang-en">One family agency. Forty-five years. A broad portfolio — from first apartments to flagship villas — curated, not dumped.</span>
+        <span class="lang-es">Una agencia familiar. Cuarenta y cinco años. Una cartera amplia — desde pisos de entrada hasta villas emblemáticas — seleccionada, no volcada.</span>
+      </p>
+      <div class="home-offer__actions">
+        <a href="https://wa.me/34659003377" class="btn btn--primary">
+          <span class="lang-en">Talk to Stazio</span>
+          <span class="lang-es">Hablar con Stazio</span>
+        </a>
+        <a href="properties.html" class="btn btn--ghost">
+          <span class="lang-en">See properties</span>
+          <span class="lang-es">Ver propiedades</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  </details>
+
+  <!-- =========== PROPERTY SNEAK PEEK =========== -->
+  <details class="home-row">
+  <summary class="home-row__btn"><span class="home-row__label"><span class="lang-en">Property sneak peek</span><span class="lang-es">Propiedades — vista rápida</span></span></summary>
+  <section class="properties" id="properties">
+    <div class="section-head">
+      <h2 class="section-title">
+        <span class="lang-en">A quick look at <em>our portfolio</em>.</span>
+        <span class="lang-es">Un vistazo a <em>nuestra cartera</em>.</span>
+      </h2>
+    </div>
+
+    <div class="property-grid">
+      <!-- Aqua Eight — 8-villa development, Los Cristianos -->
+      <a class="property-card" href="property-aqua-eight.html">
+        <div class="property-card__image" style="background-image: url('img/aqua-eight-1.jpg');">
+          <div class="property-card__badges">
+            <span class="badge badge--luxury"><span class="lang-en">Luxury</span><span class="lang-es">Lujo</span></span>
+            <span class="badge badge--newbuild"><span class="lang-en">Newly built</span><span class="lang-es">Obra nueva</span></span>
+            <span class="badge badge--tour"><span class="lang-en">360° tour</span><span class="lang-es">Tour 360°</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location">
+            <span class="lang-en">Los Cristianos, Arona</span>
+            <span class="lang-es">Los Cristianos, Arona</span>
+          </p>
+          <h3 class="property-card__title">Aqua Eight</h3>
+          <p class="property-card__meta">
+            <span><span class="lang-en">8 villas · up to 1,030 m²</span><span class="lang-es">8 villas · hasta 1.030 m²</span></span>
+            <span class="property-card__price"><span class="lang-en">from €2,890,000</span><span class="lang-es">desde 2.890.000 €</span></span>
+          </p>
+          <span class="property-card__link">
+            <span class="lang-en">See Aqua Eight →</span>
+            <span class="lang-es">Ver Aqua Eight →</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- ENA Luxury Homes — 63 residences, Los Cristianos -->
+      <a class="property-card" href="property-ena.html">
+        <div class="property-card__image" style="background-image: url('img/ena-1.jpg');">
+          <div class="property-card__badges">
+            <span class="badge badge--luxury"><span class="lang-en">Luxury</span><span class="lang-es">Lujo</span></span>
+            <span class="badge badge--newbuild"><span class="lang-en">Newly built</span><span class="lang-es">Obra nueva</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location">
+            <span class="lang-en">Los Cristianos, Arona</span>
+            <span class="lang-es">Los Cristianos, Arona</span>
+          </p>
+          <h3 class="property-card__title">ENA Luxury Homes</h3>
+          <p class="property-card__meta">
+            <span><span class="lang-en">63 residences · 1–6 beds · pool &amp; gym</span><span class="lang-es">63 residencias · 1–6 dorm. · piscina y gimnasio</span></span>
+            <span class="property-card__price"><span class="lang-en">from €600,000</span><span class="lang-es">desde 600.000 €</span></span>
+          </p>
+          <span class="property-card__link">
+            <span class="lang-en">See ENA →</span>
+            <span class="lang-es">Ver ENA →</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Riviera Verde — 5 eco villas, San Eugenio Alto -->
+      <a class="property-card" href="property-riviera-verde.html">
+        <div class="property-card__image" style="background-image: url('img/riviera-verde-1.jpg');">
+          <div class="property-card__badges">
+            <span class="badge badge--luxury"><span class="lang-en">Luxury</span><span class="lang-es">Lujo</span></span>
+            <span class="badge badge--newbuild"><span class="lang-en">Newly built</span><span class="lang-es">Obra nueva</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location">
+            <span class="lang-en">San Eugenio Alto, Costa Adeje</span>
+            <span class="lang-es">San Eugenio Alto, Costa Adeje</span>
+          </p>
+          <h3 class="property-card__title">Riviera Verde</h3>
+          <p class="property-card__meta">
+            <span><span class="lang-en">5 luxury villas · ocean views · eco build</span><span class="lang-es">5 villas de lujo · vistas al mar · construcción eco</span></span>
+            <span class="property-card__price"><span class="lang-en">Price on request</span><span class="lang-es">A consultar</span></span>
+          </p>
+          <span class="property-card__link">
+            <span class="lang-en">See Riviera Verde →</span>
+            <span class="lang-es">Ver Riviera Verde →</span>
+          </span>
+        </div>
+      </a>
+    </div>
+
+    <div class="section-cta">
+      <a href="properties.html" class="link-underline">
+        <span class="lang-en">See all properties →</span>
+        <span class="lang-es">Ver todas las propiedades →</span>
+      </a>
+    </div>
+  </section>
+  </details>
+  <!-- /Property sneak peek -->
+
+  <!-- =========== PROJECTS (own panel) =========== -->
+  <details class="home-row">
+  <summary class="home-row__btn"><span class="home-row__label"><span class="lang-en">Projects</span><span class="lang-es">Proyectos</span></span></summary>
+  <section class="projects" id="projects">
+    <div class="section-head">
+      <p class="eyebrow">
+        <span class="lang-en">Flagship projects</span>
+        <span class="lang-es">Proyectos emblemáticos</span>
+      </p>
+      <h2 class="section-title">
+        <span class="lang-en">Our projects</span>
+        <span class="lang-es">Nuestros proyectos</span>
+      </h2>
+      <p class="section-sub">
+        <span class="lang-en">Select projects where Tenerife Resort Invest has taken an active role — from land acquisition through architectural direction to completion.</span>
+        <span class="lang-es">Proyectos seleccionados en los que Tenerife Resort Invest ha tenido un papel activo, desde la adquisición del terreno hasta la dirección arquitectónica y la finalización.</span>
+      </p>
+    </div>
+
+    <div class="project-grid">
+      <article class="project-card">
+        <div class="project-card__image" style="background-image: url('img/hero.jpg');"></div>
+        <div class="project-card__body">
+          <p class="project-card__status">
+            <span class="lang-en">Completed · La Caleta</span>
+            <span class="lang-es">Finalizada · La Caleta</span>
+          </p>
+          <h3 class="project-card__title">Villa Arizona</h3>
+          <p class="project-card__sub">
+            <span class="lang-en">A desert house on a volcanic island.</span>
+            <span class="lang-es">Una casa del desierto en una isla volcánica.</span>
+          </p>
+          <a href="https://teneriferesortinvest.github.io/tri-clients/villa-arizona/" class="link-underline" target="_blank">
+            <span class="lang-en">See the villa →</span>
+            <span class="lang-es">Ver la villa →</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-card__image" style="background-image: url('img/villa-bali.jpg');"></div>
+        <div class="project-card__body">
+          <p class="project-card__status">
+            <span class="lang-en">In progress · Playa Paraíso</span>
+            <span class="lang-es">En desarrollo · Playa Paraíso</span>
+          </p>
+          <h3 class="project-card__title">Villa Bali</h3>
+          <p class="project-card__sub">
+            <span class="lang-en">A sanctuary at the edge of the Atlantic.</span>
+            <span class="lang-es">Un refugio al borde del Atlántico.</span>
+          </p>
+          <a href="property-villa-bali.html" class="link-underline">
+            <span class="lang-en">See Villa Bali →</span>
+            <span class="lang-es">Ver Villa Bali →</span>
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+  </details>
+  <!-- /Projects -->
+
+  <!-- =========== STORY + CONTACT PREVIEWS =========== -->
+
+  <details class="home-row">
+  <summary class="home-row__btn"><span class="home-row__label"><span class="lang-en">Our story</span><span class="lang-es">Nuestra historia</span></span></summary>
+  <section class="home-story">
+    <!-- DESKTOP: brief preview with link to about.html -->
+    <div class="home-story__inner home-story__preview">
+      <p><span class="lang-en">Stazio Machristi came to South Tenerife in 1981 from Philadelphia, after years at NASA and Lockheed Martin. Forty-five years later his son works alongside him.</span><span class="lang-es">Stazio Machristi llegó al sur de Tenerife en 1981 desde Filadelfia, tras años en la NASA y Lockheed Martin. Cuarenta y cinco años después, su hijo trabaja a su lado.</span></p>
+      <p class="home-story__hammer"><span class="lang-en">Two generations. One way of working.</span><span class="lang-es">Dos generaciones. Una forma de trabajar.</span></p>
+      <a href="about.html" class="link-underline"><span class="lang-en">Read the full story →</span><span class="lang-es">Leer la historia completa →</span></a>
+    </div>
+
+    <!-- MOBILE: full timeline inline, no extra page -->
+    <div class="home-story__full">
+      <div class="story__intro">
+        <p class="eyebrow"><span class="lang-en">How we got here</span><span class="lang-es">Cómo llegamos aquí</span></p>
+        <h2 class="section-title"><span class="lang-en">Forty-five years, <em>in moments</em>.</span><span class="lang-es">Cuarenta y cinco años, <em>en momentos</em>.</span></h2>
+        <p class="story__hint"><span class="lang-en">Tap a year to open it.</span><span class="lang-es">Toque un año para abrirlo.</span></p>
+      </div>
+
+      <details class="story-entry">
+        <summary class="story-entry__head">
+          <span class="story-entry__year"><span class="lang-en">Before</span><span class="lang-es">Antes</span></span>
+          <span class="story-entry__title"><span class="lang-en">Philadelphia. NASA. Lockheed Martin.</span><span class="lang-es">Filadelfia. NASA. Lockheed Martin.</span></span>
+          <span class="story-entry__toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="story-entry__body">
+          <p class="story-entry__text"><span class="lang-en">Stazio was born in Philadelphia. He spent years at NASA and at Lockheed Martin before he ever saw South Tenerife. The discipline of those places never left how he thinks about a house.</span><span class="lang-es">Stazio nació en Filadelfia. Pasó años en la NASA y en Lockheed Martin antes de conocer el sur de Tenerife. La disciplina de aquellos lugares no se le ha ido nunca de cómo piensa una casa.</span></p>
+        </div>
+      </details>
+
+      <details class="story-entry">
+        <summary class="story-entry__head">
+          <span class="story-entry__year">1981</span>
+          <span class="story-entry__title"><span class="lang-en">The starting line.</span><span class="lang-es">La línea de salida.</span></span>
+          <span class="story-entry__toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="story-entry__body">
+          <p class="story-entry__text"><span class="lang-en">Stazio arrives in South Tenerife in his early twenties. Not on holiday. Not on assignment. To build a life. He chooses a hillside, learns the local light, and registers Tenerife Resort Invest.</span><span class="lang-es">Stazio llega al sur de Tenerife con poco más de veinte años. No de vacaciones. No en una asignación. A construir una vida. Elige una ladera, aprende la luz local y registra Tenerife Resort Invest.</span></p>
+          <p class="hammer"><span class="lang-en">American. Realtor. Developer.</span><span class="lang-es">Americano. Agente. Promotor.</span></p>
+          <figure class="story-entry__photo story-entry__photo--portrait"><img src="img/stazio.jpg" alt="Stazio Machristi" /></figure>
+        </div>
+      </details>
+
+      <details class="story-entry">
+        <summary class="story-entry__head"><span class="story-entry__year">1999</span><span class="story-entry__title"><span class="lang-en">Breaking ground at La Maleza.</span><span class="lang-es">Comienzan las obras de La Maleza.</span></span><span class="story-entry__toggle" aria-hidden="true"></span></summary>
+        <div class="story-entry__body">
+          <p class="story-entry__text"><span class="lang-en">A Canarian finca in the rural south. A four-year build. Stazio handles acquisition, architectural direction, and site supervision. Clay floors, wide terraces, panoramic views.</span><span class="lang-es">Una finca canaria en el sur rural. Cuatro años de obra. Stazio se encarga de la adquisición, la dirección arquitectónica y el seguimiento en obra.</span></p>
+          <figure class="story-entry__photo"><img src="img/la-maleza-22.jpg" alt="La Maleza — early construction" /></figure>
+        </div>
+      </details>
+
+      <details class="story-entry">
+        <summary class="story-entry__head"><span class="story-entry__year">2002</span><span class="story-entry__title"><span class="lang-en">La Maleza complete.</span><span class="lang-es">La Maleza finalizada.</span></span><span class="story-entry__toggle" aria-hidden="true"></span></summary>
+        <div class="story-entry__body">
+          <p class="story-entry__text"><span class="lang-en">Three years and change. The house hands over finished — his first signature development.</span><span class="lang-es">Tres años y pico. La casa se entrega terminada — su primera promoción emblemática.</span></p>
+          <figure class="story-entry__photo"><img src="img/la-maleza-1.jpg" alt="La Maleza — finished" /></figure>
+        </div>
+      </details>
+
+      <details class="story-entry">
+        <summary class="story-entry__head"><span class="story-entry__year">2003</span><span class="story-entry__title"><span class="lang-en">La Maleza sold.</span><span class="lang-es">La Maleza, vendida.</span></span><span class="story-entry__toggle" aria-hidden="true"></span></summary>
+        <div class="story-entry__body">
+          <p class="story-entry__text"><span class="lang-en">Martin Hounsell signs the arras. Proof the agency could acquire, build, and sell — not just broker.</span><span class="lang-es">Martin Hounsell firma las arras. Prueba de que la agencia podía adquirir, construir y vender, no sólo intermediar.</span></p>
+          <figure class="story-entry__photo"><img src="img/la-maleza-13.jpg" alt="La Maleza handed over" /></figure>
+        </div>
+      </details>
+
+      <details class="story-entry">
+        <summary class="story-entry__head"><span class="story-entry__year">2014</span><span class="story-entry__title"><span class="lang-en">Avenida de la Macaronesia — villa one, sold.</span><span class="lang-es">Avenida de la Macaronesia — primera villa, vendida.</span></span><span class="story-entry__toggle" aria-hidden="true"></span></summary>
+        <div class="story-entry__body"><p class="story-entry__text"><span class="lang-en">The first of two villas Stazio developed on Avenida de la Macaronesia. Acquired, built, handed over, sold.</span><span class="lang-es">La primera de dos villas que Stazio promovió en la Avenida de la Macaronesia.</span></p></div>
+      </details>
+
+      <details class="story-entry">
+        <summary class="story-entry__head"><span class="story-entry__year">2018</span><span class="story-entry__title"><span class="lang-en">Macaronesia — villa two, sold.</span><span class="lang-es">Macaronesia — segunda villa, vendida.</span></span><span class="story-entry__toggle" aria-hidden="true"></span></summary>
+        <div class="story-entry__body"><p class="story-entry__text"><span class="lang-en">Adjacent plot. Four years after the first. TRI had developed and sold four houses from the ground up.</span><span class="lang-es">Parcela adyacente. Cuatro años después. TRI había construido y vendido ya cuatro casas desde cero.</span></p></div>
+      </details>
+
+      <details class="story-entry">
+        <summary class="story-entry__head"><span class="story-entry__year">2021</span><span class="story-entry__title"><span class="lang-en">Villa Arizona — ground broken.</span><span class="lang-es">Villa Arizona — comienzan las obras.</span></span><span class="story-entry__toggle" aria-hidden="true"></span></summary>
+        <div class="story-entry__body">
+          <p class="story-entry__text"><span class="lang-en">La Caleta hillside plot. Five en-suite bedrooms, infinity pool the length of the south-facing garden.</span><span class="lang-es">Parcela en la ladera de La Caleta. Cinco dormitorios en suite, piscina infinita.</span></p>
+          <figure class="story-entry__photo"><img src="img/arizona-build-16.jpg" alt="Villa Arizona — shell rising" /></figure>
+        </div>
+      </details>
+
+      <details class="story-entry">
+        <summary class="story-entry__head"><span class="story-entry__year">2022</span><span class="story-entry__title"><span class="lang-en">Villa Arizona — rising.</span><span class="lang-es">Villa Arizona — en obra.</span></span><span class="story-entry__toggle" aria-hidden="true"></span></summary>
+        <div class="story-entry__body">
+          <p class="story-entry__text"><span class="lang-en">Structure up, roof on, pool dug out. Stazio on site weekly.</span><span class="lang-es">Estructura levantada, cubierta puesta, piscina excavada. Stazio en obra cada semana.</span></p>
+          <figure class="story-entry__photo"><img src="img/arizona-build-11.jpg" alt="Villa Arizona 2022" /></figure>
+        </div>
+      </details>
+
+      <details class="story-entry">
+        <summary class="story-entry__head"><span class="story-entry__year">2023</span><span class="story-entry__title"><span class="lang-en">Villa Arizona completed.</span><span class="lang-es">Villa Arizona finalizada.</span></span><span class="story-entry__toggle" aria-hidden="true"></span></summary>
+        <div class="story-entry__body">
+          <p class="story-entry__text"><span class="lang-en">550 m² built, 2,500 m² plot, 6-car garage, interior courtyard with a single olive tree. TRI holds a 40% equity stake.</span><span class="lang-es">550 m² construidos, 2.500 m² de parcela, garaje para 6 coches. TRI mantiene un 40% del capital.</span></p>
+          <figure class="story-entry__photo"><img src="img/hero.jpg" alt="Villa Arizona" /></figure>
+        </div>
+      </details>
+
+      <details class="story-entry">
+        <summary class="story-entry__head"><span class="story-entry__year">2025</span><span class="story-entry__title"><span class="lang-en">Tino joins.</span><span class="lang-es">Tino se une.</span></span><span class="story-entry__toggle" aria-hidden="true"></span></summary>
+        <div class="story-entry__body">
+          <p class="story-entry__text"><span class="lang-en">Tino leaves Younited in Paris and joins full-time. New photography, new brand system, AI-assisted listings, four-language coverage.</span><span class="lang-es">Tino deja Younited en París y se incorpora a tiempo completo. Nueva fotografía, nuevo sistema de marca.</span></p>
+          <figure class="story-entry__photo"><img src="img/tino.jpg" alt="Tino Machristi" /></figure>
+        </div>
+      </details>
+
+      <details class="story-entry story-entry--now">
+        <summary class="story-entry__head"><span class="story-entry__year"><span class="lang-en">Today</span><span class="lang-es">Hoy</span></span><span class="story-entry__title"><span class="lang-en">Villa Bali, and what's after.</span><span class="lang-es">Villa Bali, y lo que viene.</span></span><span class="story-entry__toggle" aria-hidden="true"></span></summary>
+        <div class="story-entry__body">
+          <p class="story-entry__text"><span class="lang-en">Villa Bali in construction, Playa Paraíso. Two generations. One way of working.</span><span class="lang-es">Villa Bali en construcción, Playa Paraíso. Dos generaciones. Una forma de trabajar.</span></p>
+          <figure class="story-entry__photo"><img src="img/villa-bali.jpg" alt="Villa Bali in progress" /></figure>
+        </div>
+      </details>
+    </div>
+  </section>
+  </details>
+
+  <details class="home-row">
+  <summary class="home-row__btn"><span class="home-row__label"><span class="lang-en">Contact</span><span class="lang-es">Contacto</span></span></summary>
+  <section class="home-contact">
+    <div class="home-contact__inner">
+      <p><span class="lang-en">No call centre, no auto-responder. Stazio answers his own phone.</span><span class="lang-es">Sin centro de llamadas, sin respuestas automáticas. Stazio contesta su propio teléfono.</span></p>
+      <div class="home-contact__actions">
+        <a href="https://wa.me/34659003377" class="btn btn--primary">WhatsApp</a>
+        <a href="tel:+34659003377" class="btn btn--ghost">+34 659 00 33 77</a>
+        <a href="mailto:teneriferesortinvest@gmail.com" class="btn btn--ghost">Email</a>
+      </div>
+    </div>
+  </section>
+  </details>
+
+  <!-- =========== FOOTER =========== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__col">
+        <img src="img/logo-dark.png" alt="Tenerife Resort Invest" class="footer__logo" />
+        <p class="footer__tagline">
+          <span class="lang-en">Homes in South Tenerife since 1981.</span>
+          <span class="lang-es">Hogares en el sur de Tenerife desde 1981.</span>
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <p class="footer__label">
+          <span class="lang-en">Navigate</span>
+          <span class="lang-es">Navegar</span>
+        </p>
+        <ul>
+          <li><a href="properties.html"><span class="lang-en">Properties</span><span class="lang-es">Propiedades</span></a></li>
+          <li><a href="projects.html"><span class="lang-en">Projects</span><span class="lang-es">Proyectos</span></a></li>
+          <li><a href="about.html"><span class="lang-en">Our story</span><span class="lang-es">Nuestra historia</span></a></li>
+          <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-es">Contacto</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <p class="footer__label">
+          <span class="lang-en">Contact</span>
+          <span class="lang-es">Contacto</span>
+        </p>
+        <p>Stazio Machristi<br/>
+          <a href="tel:+34659003377">+34 659 00 33 77</a><br/>
+          <a href="mailto:teneriferesortinvest@gmail.com">teneriferesortinvest@gmail.com</a>
+        </p>
+        <p>Av. de la Macaronesia 9<br/>La Caleta, Adeje 38679<br/>Tenerife, Spain</p>
+      </div>
+
+      <div class="footer__col">
+        <p class="footer__label">
+          <span class="lang-en">Follow</span>
+          <span class="lang-es">Síganos</span>
+        </p>
+        <ul>
+          <li><a href="https://www.instagram.com/teneriferesortinvest/" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>© 2026 Tenerife Resort Invest · <span class="lang-en">45 years in South Tenerife</span><span class="lang-es">45 años en el sur de Tenerife</span></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+<a href="https://wa.me/34659003377" class="fab-wa" aria-label="WhatsApp Stazio" target="_blank" rel="noopener">
+  <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3.4 8.5 3.4 15.3c0 2.4.7 4.6 1.9 6.6L3 29l7.4-2.2c1.9 1 4 1.6 6.2 1.6 7 0 12.6-5.5 12.6-12.3C29.2 8.2 23.6 3 16 3zm7.3 17.9c-.3.9-1.5 1.6-2.5 1.8-.7.1-1.5.2-4.4-.9-3.7-1.5-6.1-5.2-6.3-5.4-.2-.2-1.4-1.9-1.4-3.6 0-1.7.9-2.5 1.2-2.9.3-.3.7-.4 1-.4h.7c.2 0 .5 0 .8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.4-.5.6-.2.2-.4.4-.2.8.2.4.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.4.1.6.1.8-.1.2-.2.9-1.1 1.2-1.4.2-.4.5-.3.8-.2.3.1 2 .9 2.4 1.1.4.2.6.3.7.4.1.2.1 1-.3 1.9z"/></svg>
+</a>
+</body>
+</html>

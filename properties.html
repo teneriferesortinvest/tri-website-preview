@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Properties — Tenerife Resort Invest</title>
+  <meta name="description" content="Villas, apartments, fincas and land in South Tenerife. 45 years of careful curation by Tenerife Resort Invest." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo+Black&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="nav"><div class="nav__inner">
+    <a href="index.html" class="nav__logo"><span class="nav__wordmark">Tenerife Resort Invest</span></a>
+    <nav class="nav__menu"><a href="properties.html" class="is-current">Properties</a><a href="projects.html">Projects</a><a href="about.html">Our story</a><a href="contact.html">Contact</a></nav>
+    <div class="nav__actions">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button class="lang-btn is-active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <a href="contact.html" class="nav__cta">Contact us</a><button class="nav__hamburger" id="navHamburger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div></header>
+
+  <section class="page-header">
+    <div class="page-header__inner">
+      <p class="eyebrow"><span class="lang-en">Current inventory</span><span class="lang-es">Inventario actual</span></p>
+      <h1 class="page-title"><span class="lang-en">Homes currently for sale <em>in South Tenerife</em>.</span><span class="lang-es">Casas actualmente en venta <em>en el sur de Tenerife</em>.</span></h1>
+      <p class="page-sub"><span class="lang-en">Eighteen active listings. Curated, not dumped. If you want something that's not on this page, ask — we probably know who has it.</span><span class="lang-es">Dieciocho listados activos. Seleccionados, no volcados. Si busca algo que no está aquí, pregunte — probablemente sepamos quién lo tiene.</span></p>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <section class="filters" id="propFilters">
+    <button class="filters__toggle" id="propFiltersToggle" aria-expanded="false" aria-controls="propFiltersInner"><span><span class="lang-en">Filters</span><span class="lang-es">Filtros</span></span><span class="filters__toggle-chev">↓</span></button>
+    <div class="filters__inner" id="propFiltersInner">
+      <div class="filter"><label class="filter__label"><span class="lang-en">Zone</span><span class="lang-es">Zona</span></label><select class="filter__select"><option>All</option><option>Adeje</option><option>La Caleta</option><option>Costa Adeje</option><option>Arona</option></select></div>
+      <div class="filter"><label class="filter__label"><span class="lang-en">Type</span><span class="lang-es">Tipo</span></label><select class="filter__select"><option>All</option><option>Villa</option><option>Apartment</option><option>Finca</option><option>Land</option></select></div>
+      <div class="filter"><label class="filter__label"><span class="lang-en">Price</span><span class="lang-es">Precio</span></label><select class="filter__select"><option>Any</option><option>Under €300K</option><option>€300K – €800K</option><option>€800K – €2M</option><option>€2M – €5M</option><option>€5M+</option></select></div>
+      <div class="filter"><label class="filter__label"><span class="lang-en">Bedrooms</span><span class="lang-es">Dormitorios</span></label><select class="filter__select"><option>Any</option><option>1+</option><option>2+</option><option>3+</option><option>4+</option><option>5+</option></select></div>
+      <div class="filter"><label class="filter__label"><span class="lang-en">Tier</span><span class="lang-es">Segmento</span></label><select class="filter__select"><option>All</option><option>Luxury €1M+</option><option>Mid-market</option><option>Land</option></select></div>
+      <div class="filter"><label class="filter__label"><span class="lang-en">Status</span><span class="lang-es">Estado</span></label><select class="filter__select"><option>All</option><option>Newly built</option><option>Resale</option><option>Renovated</option></select></div>
+      <div class="filter__results"><span class="lang-en">Showing 12 homes</span><span class="lang-es">Mostrando 12 casas</span></div>
+    </div>
+  </section>
+
+  <!-- Properties grid -->
+  <section class="properties">
+    <div class="property-grid">
+
+      <!-- Villa Arizona (Macaronesia Nº 9) -->
+      <a class="property-card" href="property-villa-arizona.html">
+        <div class="property-card__image" data-prop="arizona" style="background-image: url('img/arizona.jpg');">
+          <div class="property-card__badges">
+            <span class="badge badge--luxury"><span class="lang-en">Luxury</span><span class="lang-es">Lujo</span></span>
+            <span class="badge badge--newbuild"><span class="lang-en">Newly built</span><span class="lang-es">Obra nueva</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location">La Caleta, Adeje</p>
+          <h3 class="property-card__title">Villa Arizona</h3>
+          <p class="property-card__meta"><span>5 bed · 5 bath · 550 m²</span><span class="property-card__price">€6,150,000</span></p>
+          <span class="property-card__link"><span class="lang-en">See the villa →</span><span class="lang-es">Ver la villa →</span></span>
+        </div>
+      </a>
+
+      <!-- Villa Bali -->
+      <a class="property-card" href="property-villa-bali.html">
+        <div class="property-card__image" data-prop="bali" style="background-image: url('img/bali.jpg');">
+          <div class="property-card__badges">
+            <span class="badge badge--luxury"><span class="lang-en">Luxury</span><span class="lang-es">Lujo</span></span>
+            <span class="badge badge--newbuild"><span class="lang-en">Newly built</span><span class="lang-es">Obra nueva</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location">Playa Paraíso, Adeje</p>
+          <h3 class="property-card__title">Villa Bali</h3>
+          <p class="property-card__meta"><span>4 bed · 4 bath · 1,000 m²</span><span class="property-card__price">€5,500,000</span></p>
+          <span class="property-card__link"><span class="lang-en">See Villa Bali →</span><span class="lang-es">Ver Villa Bali →</span></span>
+        </div>
+      </a>
+
+      <!-- Villa Nova -->
+      <a class="property-card" href="property-villa-nova.html">
+        <div class="property-card__image" data-prop="nova" style="background-image: url('img/villa-nova-1.jpg');">
+          <div class="property-card__badges">
+            <span class="badge badge--luxury"><span class="lang-en">Luxury</span><span class="lang-es">Lujo</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location">Adeje</p>
+          <h3 class="property-card__title">Villa Nova</h3>
+          <p class="property-card__meta"><span><span class="lang-en">Private villa · pool · panoramic views</span><span class="lang-es">Villa privada · piscina · vistas panorámicas</span></span><span class="property-card__price">€1,339,000</span></p>
+          <span class="property-card__link"><span class="lang-en">See Villa Nova →</span><span class="lang-es">Ver Villa Nova →</span></span>
+        </div>
+      </a>
+
+      <!-- Veril del Duque -->
+      <a class="property-card" href="property-veril-del-duque.html">
+        <div class="property-card__image" data-prop="veril" style="background-image: url('img/veril.jpg');">
+          <div class="property-card__badges">
+            <span class="badge badge--newbuild"><span class="lang-en">Fully renovated</span><span class="lang-es">Reforma integral</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location">La Caleta, Adeje</p>
+          <h3 class="property-card__title">Veril del Duque</h3>
+          <p class="property-card__meta"><span>1 bed · 1 bath · <span class="lang-en">top floor, fully renovated</span><span class="lang-es">última planta, reforma integral</span></span><span class="property-card__price">€580,000</span></p>
+          <span class="property-card__link"><span class="lang-en">See Veril del Duque →</span><span class="lang-es">Ver Veril del Duque →</span></span>
+        </div>
+      </a>
+
+      <!-- Mane (Bruselas 7) -->
+      <div class="property-card-wrap">
+        <a class="property-card" href="property-bruselas.html">
+          <div class="property-card__image" data-prop="mane" style="background-image: url('img/mane.jpg');">
+            <div class="property-card__badges">
+              <span class="badge badge--newbuild"><span class="lang-en">Fully renovated</span><span class="lang-es">Reforma integral</span></span>
+              <span class="badge badge--luxury"><span class="lang-en">Fully furnished</span><span class="lang-es">Amueblado</span></span>
+              <span class="badge badge--tour">360° Tour</span>
+            </div>
+          </div>
+          <div class="property-card__body">
+            <p class="property-card__location">San Eugenio Bajo, Adeje</p>
+            <h3 class="property-card__title">Apartment Av. Bruselas 7</h3>
+            <p class="property-card__meta"><span>1 bed · 1 bath · 52 m²</span><span class="property-card__price">€325,000</span></p>
+            <span class="property-card__link"><span class="lang-en">See more →</span><span class="lang-es">Ver más →</span></span>
+          </div>
+        </a>
+        <a class="tour-link" href="https://kuula.co/share/collection/7MT7K?logo=1&info=0&logosize=112&fs=1&vr=1&sd=1&initload=0&thumbs=1" target="_blank" rel="noopener">
+          <span class="lang-en">Open 360° virtual tour →</span><span class="lang-es">Abrir tour virtual 360° →</span>
+        </a>
+      </div>
+
+      <!-- Sebas (Alse Homes Apt 1) -->
+      <div class="property-card-wrap">
+        <a class="property-card" href="property-sebas-apt1.html">
+          <div class="property-card__image" data-prop="sebas" style="background-image: url('img/sebas-apt1.jpg');">
+            <div class="property-card__badges">
+              <span class="badge badge--newbuild"><span class="lang-en">Newly built</span><span class="lang-es">Obra nueva</span></span>
+              <span class="badge badge--luxury"><span class="lang-en">Fully furnished</span><span class="lang-es">Amueblado</span></span>
+              <span class="badge badge--tour">360° Tour</span>
+            </div>
+          </div>
+          <div class="property-card__body">
+            <p class="property-card__location">Villa de Adeje</p>
+            <h3 class="property-card__title">Alse Homes Apt 1</h3>
+            <p class="property-card__meta"><span>1 bed · 1 bath · 60 m²</span><span class="property-card__price">€295,000</span></p>
+            <span class="property-card__link"><span class="lang-en">See more →</span><span class="lang-es">Ver más →</span></span>
+          </div>
+        </a>
+        <a class="tour-link" href="https://kuula.co/share/collection/7M8PP?logo=1&info=0&logosize=112&fs=1&vr=1&sd=1&initload=0&thumbs=1" target="_blank" rel="noopener">
+          <span class="lang-en">Open 360° virtual tour →</span><span class="lang-es">Abrir tour virtual 360° →</span>
+        </a>
+      </div>
+
+      <!-- Aqua Roque -->
+      <a class="property-card" href="property-aqua-roque.html">
+        <div class="property-card__image" style="background-image: url('img/aqua-roque-1.jpg');">
+          <div class="property-card__badges">
+            <span class="badge badge--luxury"><span class="lang-en">Luxury</span><span class="lang-es">Lujo</span></span>
+            <span class="badge badge--newbuild"><span class="lang-en">Newly built</span><span class="lang-es">Obra nueva</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location">Roque del Conde, Adeje</p>
+          <h3 class="property-card__title">Aqua Roque</h3>
+          <p class="property-card__meta"><span>4 bed · 4+1 bath · 553 m² · 923 m² <span class="lang-en">plot</span><span class="lang-es">parcela</span></span><span class="property-card__price">€3,390,000</span></p>
+          <span class="property-card__link"><span class="lang-en">See Aqua Roque →</span><span class="lang-es">Ver Aqua Roque →</span></span>
+        </div>
+      </a>
+
+      <!-- Riviera Verde -->
+      <a class="property-card" href="property-riviera-verde.html">
+        <div class="property-card__image" style="background-image: url('img/riviera-verde-1.jpg');">
+          <div class="property-card__badges">
+            <span class="badge badge--luxury"><span class="lang-en">Luxury</span><span class="lang-es">Lujo</span></span>
+            <span class="badge badge--newbuild"><span class="lang-en">Newly built</span><span class="lang-es">Obra nueva</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location">San Eugenio Alto, Costa Adeje</p>
+          <h3 class="property-card__title">Riviera Verde</h3>
+          <p class="property-card__meta"><span><span class="lang-en">5 luxury villas · ocean views · eco build</span><span class="lang-es">5 villas de lujo · vistas al mar · construcción eco</span></span><span class="property-card__price"><span class="lang-en">Price on request</span><span class="lang-es">A consultar</span></span></p>
+          <span class="property-card__link"><span class="lang-en">See Riviera Verde →</span><span class="lang-es">Ver Riviera Verde →</span></span>
+        </div>
+      </a>
+
+      <!-- ENA Luxury Homes -->
+      <a class="property-card" href="property-ena.html">
+        <div class="property-card__image" style="background-image: url('img/ena-1.jpg');">
+          <div class="property-card__badges">
+            <span class="badge badge--luxury"><span class="lang-en">Luxury</span><span class="lang-es">Lujo</span></span>
+            <span class="badge badge--newbuild"><span class="lang-en">Newly built</span><span class="lang-es">Obra nueva</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location">Los Cristianos, Arona</p>
+          <h3 class="property-card__title">ENA Luxury Homes</h3>
+          <p class="property-card__meta"><span><span class="lang-en">63 residences · 1–6 beds · pool &amp; gym</span><span class="lang-es">63 residencias · 1–6 dormitorios · piscina y gimnasio</span></span><span class="property-card__price"><span class="lang-en">from €600,000</span><span class="lang-es">desde 600.000 €</span></span></p>
+          <span class="property-card__link"><span class="lang-en">See ENA →</span><span class="lang-es">Ver ENA →</span></span>
+        </div>
+      </a>
+
+      <!-- Aqua Eight -->
+      <a class="property-card" href="property-aqua-eight.html">
+        <div class="property-card__image" style="background-image: url('img/aqua-eight-1.jpg');">
+          <div class="property-card__badges">
+            <span class="badge badge--luxury"><span class="lang-en">Luxury</span><span class="lang-es">Lujo</span></span>
+            <span class="badge badge--newbuild"><span class="lang-en">Newly built</span><span class="lang-es">Obra nueva</span></span>
+            <span class="badge badge--tour"><span class="lang-en">360° tour</span><span class="lang-es">Tour 360°</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location">Los Cristianos, Arona</p>
+          <h3 class="property-card__title">Aqua Eight</h3>
+          <p class="property-card__meta"><span><span class="lang-en">8 villas · up to 1,030 m²</span><span class="lang-es">8 villas · hasta 1.030 m²</span></span><span class="property-card__price"><span class="lang-en">from €2,890,000</span><span class="lang-es">desde 2.890.000 €</span></span></p>
+          <span class="property-card__link"><span class="lang-en">See Aqua Eight + walk both villas (360°) →</span><span class="lang-es">Ver Aqua Eight + recorrer ambas villas (360°) →</span></span>
+        </div>
+      </a>
+
+      <!-- Villa Hermosa -->
+      <a class="property-card" href="property-villa-hermosa.html">
+        <div class="property-card__image" style="background-image: url('img/villa-hermosa-1.jpg');">
+          <div class="property-card__badges">
+            <span class="badge badge--luxury"><span class="lang-en">Luxury</span><span class="lang-es">Lujo</span></span>
+            <span class="badge badge--newbuild"><span class="lang-en">Newly built</span><span class="lang-es">Obra nueva</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location"><span class="lang-en">South Tenerife</span><span class="lang-es">Sur de Tenerife</span></p>
+          <h3 class="property-card__title">Villa Hermosa</h3>
+          <p class="property-card__meta"><span><span class="lang-en">Newly built villa</span><span class="lang-es">Villa de obra nueva</span></span><span class="property-card__price">€1,790,000</span></p>
+          <span class="property-card__link"><span class="lang-en">See Villa Hermosa →</span><span class="lang-es">Ver Villa Hermosa →</span></span>
+        </div>
+      </a>
+
+      <!-- Joyas del Duque -->
+      <a class="property-card" href="property-joyas-del-duque.html">
+        <div class="property-card__image" style="background-image: url('img/joyas-del-duque-1.jpg');">
+          <div class="property-card__badges">
+            <span class="badge badge--luxury"><span class="lang-en">Luxury</span><span class="lang-es">Lujo</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location">Costa Adeje · El Duque</p>
+          <h3 class="property-card__title">Joyas del Duque</h3>
+          <p class="property-card__meta"><span>3 bed · 3 bath · 300 m²</span><span class="property-card__price">€2,400,000</span></p>
+          <span class="property-card__link"><span class="lang-en">See Joyas del Duque →</span><span class="lang-es">Ver Joyas del Duque →</span></span>
+        </div>
+      </a>
+
+      <!-- Chalet Helsinki -->
+      <a class="property-card" href="#">
+        <div class="property-card__image" style="background-image: url('img/hero.jpg');">
+          <div class="property-card__badges">
+            <span class="badge badge--luxury"><span class="lang-en">Luxury</span><span class="lang-es">Lujo</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location">Playa del Duque, Adeje</p>
+          <h3 class="property-card__title">Chalet Calle Helsinki</h3>
+          <p class="property-card__meta"><span><span class="lang-en">Independent villa</span><span class="lang-es">Chalet independiente</span></span><span class="property-card__price">€2,400,000</span></p>
+          <span class="property-card__link"><span class="lang-en">See more →</span><span class="lang-es">Ver más →</span></span>
+        </div>
+      </a>
+
+      <!-- Sindy (Trigal) -->
+      <a class="property-card" href="#">
+        <div class="property-card__image" style="background-image: url('img/hero.jpg');">
+          <div class="property-card__badges">
+            <span class="badge badge--newbuild"><span class="lang-en">Newly built</span><span class="lang-es">Obra nueva</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location">Valle San Lorenzo, Arona</p>
+          <h3 class="property-card__title">Piso Callejón el Trigal</h3>
+          <p class="property-card__meta"><span><span class="lang-en">Apartment</span><span class="lang-es">Piso</span></span><span class="property-card__price">€230,000</span></p>
+          <span class="property-card__link"><span class="lang-en">See more →</span><span class="lang-es">Ver más →</span></span>
+        </div>
+      </a>
+
+      <!-- Terreno Guía de Isora -->
+      <a class="property-card" href="#">
+        <div class="property-card__image" style="background-image: url('img/hero.jpg');">
+          <div class="property-card__badges">
+            <span class="badge badge--land"><span class="lang-en">Land</span><span class="lang-es">Terreno</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location">Guía de Isora</p>
+          <h3 class="property-card__title">Terreno Guía de Isora</h3>
+          <p class="property-card__meta"><span>5,799 m²</span><span class="property-card__price">€293,500</span></p>
+          <span class="property-card__link"><span class="lang-en">See more →</span><span class="lang-es">Ver más →</span></span>
+        </div>
+      </a>
+
+
+    </div>
+
+    <p class="properties__note">
+      <span class="lang-en">13 of 20 listings shown here. The other 7 appear after the WordPress migration — they exist in our inventory today; the site just hasn't caught up yet.</span>
+      <span class="lang-es">13 de 20 listados visibles. Los otros 7 aparecen después de la migración a WordPress — existen hoy en nuestro inventario; la web todavía no los ha recogido.</span>
+    </p>
+  </section>
+
+  <footer class="footer"><div class="footer__inner">
+    <div class="footer__col"><img src="img/logo-dark.png" alt="" class="footer__logo" /><p class="footer__tagline"><span class="lang-en">Homes in South Tenerife since 1981.</span><span class="lang-es">Hogares en el sur de Tenerife desde 1981.</span></p></div>
+    <div class="footer__col"><p class="footer__label"><span class="lang-en">Navigate</span><span class="lang-es">Navegar</span></p><ul><li><a href="properties.html"><span class="lang-en">Properties</span><span class="lang-es">Propiedades</span></a></li><li><a href="projects.html"><span class="lang-en">Projects</span><span class="lang-es">Proyectos</span></a></li><li><a href="about.html"><span class="lang-en">Our story</span><span class="lang-es">Nuestra historia</span></a></li><li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-es">Contacto</span></a></li></ul></div>
+    <div class="footer__col"><p class="footer__label"><span class="lang-en">Contact</span><span class="lang-es">Contacto</span></p><p>Stazio Machristi<br/><a href="tel:+34659003377">+34 659 00 33 77</a><br/><a href="mailto:teneriferesortinvest@gmail.com">teneriferesortinvest@gmail.com</a></p></div>
+    <div class="footer__col"><p class="footer__label"><span class="lang-en">Follow</span><span class="lang-es">Síganos</span></p><ul><li><a href="https://www.instagram.com/teneriferesortinvest/" target="_blank">Instagram</a></li></ul></div>
+  </div><div class="footer__bottom"><p>© 2026 Tenerife Resort Invest</p></div></footer>
+
+  <script src="js/main.js"></script>
+<a href="https://wa.me/34659003377" class="fab-wa" aria-label="WhatsApp Stazio" target="_blank" rel="noopener">
+  <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3.4 8.5 3.4 15.3c0 2.4.7 4.6 1.9 6.6L3 29l7.4-2.2c1.9 1 4 1.6 6.2 1.6 7 0 12.6-5.5 12.6-12.3C29.2 8.2 23.6 3 16 3zm7.3 17.9c-.3.9-1.5 1.6-2.5 1.8-.7.1-1.5.2-4.4-.9-3.7-1.5-6.1-5.2-6.3-5.4-.2-.2-1.4-1.9-1.4-3.6 0-1.7.9-2.5 1.2-2.9.3-.3.7-.4 1-.4h.7c.2 0 .5 0 .8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.4-.5.6-.2.2-.4.4-.2.8.2.4.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.4.1.6.1.8-.1.2-.2.9-1.1 1.2-1.4.2-.4.5-.3.8-.2.3.1 2 .9 2.4 1.1.4.2.6.3.7.4.1.2.1 1-.3 1.9z"/></svg>
+</a>
+</body>
+</html>
