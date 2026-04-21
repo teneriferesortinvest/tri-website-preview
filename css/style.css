@@ -260,6 +260,24 @@ html[data-lang="it"] .lang-de { display: none !important; }
 }
 .nav__cta:hover { background: var(--ink); color: var(--paper); }
 
+.nav__ig {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--ink);
+  transition: background 0.2s ease, color 0.2s ease;
+  margin-right: 4px;
+}
+.nav__ig:hover { background: var(--ink); color: var(--paper); }
+.nav__ig svg { width: 18px; height: 18px; }
+@media (max-width: 860px) {
+  .nav__ig { width: 32px; height: 32px; }
+  .nav__ig svg { width: 16px; height: 16px; }
+}
+
 /* ---------- Mobile nav: hamburger + slide-out drawer ---------- */
 .nav__hamburger {
   display: none;
@@ -3200,4 +3218,9 @@ a.contact-info__value:hover { color: var(--warm-brown); }
   .home-row > .home-offer { padding-top: 20px; }
   .home-row > .home-story { padding-top: 20px; }
   .home-row > .home-contact { padding-top: 20px; }
+}
+
+/* "Home" link in the hamburger drawer — only visible on phone inside the menu */
+@media (min-width: 861px) {
+  .nav__menu-mobile-only { display: none !important; }
 }
