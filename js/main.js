@@ -32,26 +32,64 @@
 /* ---------- forms → WhatsApp (no backend yet) ----------
    Any <form data-wa-form> intercepts submit, builds a message with
    the field values + document.title for context, opens wa.me.
+   Supports: text/tel/email inputs, textareas, selects, and grouped checkboxes
+   (multiple inputs with the same name = multi-select).
+   Uses data-label on the input OR the wrapping <label>'s first line for the
+   message label. name/email/phone/message are reserved for the contact line.
 */
 (() => {
   const WA_NUMBER = '34659003377';
+  const RESERVED = new Set(['name', 'email', 'phone', 'message']);
+
   document.querySelectorAll('form[data-wa-form]').forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const fd = new FormData(form);
+
       const name    = (fd.get('name')    || '').toString().trim();
       const email   = (fd.get('email')   || '').toString().trim();
       const phone   = (fd.get('phone')   || '').toString().trim();
       const message = (fd.get('message') || '').toString().trim();
 
-      // Page context: property name from <title> ("Villa Bali — Tenerife Resort Invest" → "Villa Bali")
-      const title = (document.title || '').split('—')[0].trim();
-      const isPropertyPage = /property-/.test(location.pathname);
+      // Collect everything else as labeled rows
+      const extras = new Map();
+      for (const el of form.elements) {
+        if (!el.name || RESERVED.has(el.name)) continue;
+        const label = (el.dataset.label
+          || el.closest('label')?.textContent
+          || el.name).trim().split('\n')[0].trim();
+        if (el.type === 'checkbox') {
+          if (!el.checked) continue;
+          if (!extras.has(el.name)) extras.set(el.name, { label, values: [] });
+          extras.get(el.name).values.push(el.value);
+        } else if (el.type === 'radio') {
+          if (!el.checked) continue;
+          extras.set(el.name, { label, values: [el.value] });
+        } else {
+          const v = (fd.get(el.name) || '').toString().trim();
+          if (!v) continue;
+          if (!extras.has(el.name)) extras.set(el.name, { label, values: [v] });
+        }
+      }
+
+      // Page metadata comes from <body data-page-type="..." data-property-title="...">
+      // so the handler keeps working after the Houzez port changes URLs.
+      const pageType = document.body.dataset.pageType || 'generic';
+      const propertyTitle = (document.body.dataset.propertyTitle || '').trim();
 
       const lines = [];
       lines.push(`Hola Stazio, soy ${name || '...'}.`);
-      if (isPropertyPage && title) {
-        lines.push(`Me interesa: ${title}.`);
+      if (pageType === 'property' && propertyTitle) {
+        lines.push(`Me interesa: ${propertyTitle}.`);
+      } else if (pageType === 'find') {
+        lines.push('Busco una propiedad con estas características:');
+      }
+
+      if (extras.size) {
+        lines.push('');
+        extras.forEach(({ label, values }) => {
+          lines.push(`• ${label}: ${values.join(', ')}`);
+        });
       }
       if (message) {
         lines.push('');

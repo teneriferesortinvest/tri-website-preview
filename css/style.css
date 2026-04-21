@@ -3376,3 +3376,97 @@ a.contact-info__value:hover { color: var(--warm-brown); }
   .home-contact__panel { flex: 1 1 auto; width: 100%; }
   .home-contact__panel-value { font-size: 15px; }
 }
+
+/* SOLD badge — subdued, classic "no longer available" marker for historical showcase cards */
+.badge--sold {
+  background: #a63114;
+  color: var(--paper);
+  letter-spacing: 0.2em;
+}
+/* Historical (sold) cards — reduce saturation so they read as "archive" not live inventory */
+.property-card--sold .property-card__image { filter: grayscale(0.25) contrast(0.96); opacity: 0.88; }
+.property-card--sold .property-card__price::before { content: "Sold · "; font-style: italic; color: var(--ink-quiet); font-weight: 400; }
+
+/* ============== Form — brief-style extras (zones, types, budget, beds, timeline) ============== */
+
+.form__group-title {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--warm-brown);
+  margin: clamp(18px, 2vw, 28px) 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.form__group-title:first-child { margin-top: 0; }
+.form__group-hint {
+  display: block;
+  font-family: var(--serif);
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink-quiet);
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+.form__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.form__chip {
+  position: relative;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+.form__chip input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  cursor: pointer;
+}
+.form__chip span {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--paper);
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-soft);
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  user-select: none;
+}
+.form__chip:hover span { border-color: var(--ink-quiet); color: var(--ink); }
+.form__chip input:checked + span {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+.form__row--split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form__row--split > div { display: flex; flex-direction: column; }
+@media (max-width: 540px) {
+  .form__row--split { grid-template-columns: 1fr; }
+}
+
+/* Selects — match the existing text input look */
+.form__input select,
+select.form__input {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'><path d='M1 1l4 4 4-4' stroke='%231a1a16' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}

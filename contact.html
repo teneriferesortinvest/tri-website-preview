@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo+Black&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=1776772332" />
+  <link rel="stylesheet" href="css/style.css?v=1776778683" />
 
   <!-- seo-foundation:v1 -->
   <link rel="canonical" href="https://teneriferesortinvest.es/contact/" />
@@ -48,6 +48,7 @@
         </div>
         <a href="https://www.instagram.com/teneriferesortinvest/" target="_blank" rel="noopener" class="nav__ig" aria-label="Instagram @teneriferesortinvest"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="contact.html" class="nav__cta">Contact us</a>
       <button class="nav__hamburger" id="navHamburger" aria-label="Menu" aria-expanded="false"><span></span></button>
+      </div>
     </div>
   </header>
 
@@ -102,6 +103,11 @@
       <!-- Right: form -->
       <div class="contact-form">
         <form class="form" data-wa-form>
+
+          <p class="form__group-title">
+            <span class="lang-en">You</span><span class="lang-es">Usted</span>
+          </p>
+
           <div class="form__row">
             <label class="form__label" for="contactName"><span class="lang-en">Your name</span><span class="lang-es">Su nombre</span></label>
             <input type="text" name="name" id="contactName" class="form__input" autocomplete="name" required />
@@ -113,13 +119,78 @@
           </div>
 
           <div class="form__row">
-            <label class="form__label" for="contactPhone"><span class="lang-en">Phone (optional)</span><span class="lang-es">Teléfono (opcional)</span></label>
+            <label class="form__label" for="contactPhone"><span class="lang-en">Phone / WhatsApp</span><span class="lang-es">Teléfono / WhatsApp</span></label>
             <input type="tel" name="phone" id="contactPhone" class="form__input" autocomplete="tel" />
           </div>
 
+          <p class="form__group-title">
+            <span class="lang-en">What you're looking for <span class="form__group-hint">(optional — skip if you have a specific question)</span></span>
+            <span class="lang-es">Lo que busca <span class="form__group-hint">(opcional — omita si tiene una consulta específica)</span></span>
+          </p>
+
           <div class="form__row">
-            <label class="form__label" for="contactMessage"><span class="lang-en">What are you after?</span><span class="lang-es">¿Qué busca?</span></label>
-            <textarea name="message" id="contactMessage" class="form__input form__input--area" rows="5"></textarea>
+            <p class="form__label"><span class="lang-en">Zones of interest</span><span class="lang-es">Zonas de interés</span></p>
+            <div class="form__chips">
+              <label class="form__chip"><input type="checkbox" name="zones" value="La Caleta" data-label="Zone" /><span>La Caleta</span></label>
+              <label class="form__chip"><input type="checkbox" name="zones" value="Costa Adeje" data-label="Zone" /><span>Costa Adeje</span></label>
+              <label class="form__chip"><input type="checkbox" name="zones" value="Adeje" data-label="Zone" /><span>Adeje</span></label>
+              <label class="form__chip"><input type="checkbox" name="zones" value="Arona" data-label="Zone" /><span>Arona</span></label>
+              <label class="form__chip"><input type="checkbox" name="zones" value="Los Cristianos" data-label="Zone" /><span>Los Cristianos</span></label>
+              <label class="form__chip"><input type="checkbox" name="zones" value="Roque del Conde" data-label="Zone" /><span>Roque del Conde</span></label>
+              <label class="form__chip"><input type="checkbox" name="zones" value="Guía de Isora" data-label="Zone" /><span>Guía de Isora</span></label>
+              <label class="form__chip"><input type="checkbox" name="zones" value="Other / not sure" data-label="Zone" /><span><span class="lang-en">Other / not sure</span><span class="lang-es">Otra / no sé</span></span></label>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <p class="form__label"><span class="lang-en">Property type</span><span class="lang-es">Tipo de propiedad</span></p>
+            <div class="form__chips">
+              <label class="form__chip"><input type="checkbox" name="type" value="Villa" data-label="Type" /><span>Villa</span></label>
+              <label class="form__chip"><input type="checkbox" name="type" value="Apartment" data-label="Type" /><span><span class="lang-en">Apartment</span><span class="lang-es">Piso</span></span></label>
+              <label class="form__chip"><input type="checkbox" name="type" value="Land" data-label="Type" /><span><span class="lang-en">Land</span><span class="lang-es">Terreno</span></span></label>
+              <label class="form__chip"><input type="checkbox" name="type" value="Project / off-plan" data-label="Type" /><span><span class="lang-en">Project / off-plan</span><span class="lang-es">Proyecto / sobre plano</span></span></label>
+            </div>
+          </div>
+
+          <div class="form__row form__row--split">
+            <div>
+              <label class="form__label" for="contactBudget"><span class="lang-en">Budget</span><span class="lang-es">Presupuesto</span></label>
+              <select name="budget" id="contactBudget" class="form__input" data-label="Budget">
+                <option value=""><span class="lang-en">Any</span></option>
+                <option value="Under €300K">&lt; €300K</option>
+                <option value="€300K–€800K">€300K – €800K</option>
+                <option value="€800K–€2M">€800K – €2M</option>
+                <option value="€2M–€5M">€2M – €5M</option>
+                <option value="€5M+">€5M+</option>
+              </select>
+            </div>
+            <div>
+              <label class="form__label" for="contactBeds"><span class="lang-en">Bedrooms</span><span class="lang-es">Dormitorios</span></label>
+              <select name="bedrooms" id="contactBeds" class="form__input" data-label="Bedrooms">
+                <option value="">Any</option>
+                <option value="1+">1+</option>
+                <option value="2+">2+</option>
+                <option value="3+">3+</option>
+                <option value="4+">4+</option>
+                <option value="5+">5+</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <label class="form__label" for="contactTimeline"><span class="lang-en">Timeline</span><span class="lang-es">Plazo</span></label>
+            <select name="timeline" id="contactTimeline" class="form__input" data-label="Timeline">
+              <option value=""><span class="lang-en">No rush</span></option>
+              <option value="Ready to buy now">Ready to buy now · Listo para comprar</option>
+              <option value="1–3 months">1–3 months · 1–3 meses</option>
+              <option value="6–12 months">6–12 months · 6–12 meses</option>
+              <option value="Just exploring">Just exploring · Sólo explorando</option>
+            </select>
+          </div>
+
+          <div class="form__row">
+            <label class="form__label" for="contactMessage"><span class="lang-en">Anything else?</span><span class="lang-es">¿Algo más?</span></label>
+            <textarea name="message" id="contactMessage" class="form__input form__input--area" rows="5" placeholder="Sea view, private pool, pet-friendly, garage, any detail that matters…"></textarea>
           </div>
 
           <button type="submit" class="btn btn--primary form__submit">
@@ -128,8 +199,8 @@
           </button>
 
           <p class="form__note">
-            <span class="lang-en">Opens WhatsApp with your message prefilled. Stazio replies within 24 hours.</span>
-            <span class="lang-es">Abre WhatsApp con su mensaje listo. Stazio responde en 24 horas.</span>
+            <span class="lang-en">Opens WhatsApp with your answers prefilled. Stazio replies within 24 hours.</span>
+            <span class="lang-es">Abre WhatsApp con sus respuestas listas. Stazio responde en 24 horas.</span>
           </p>
         </form>
       </div>
@@ -179,7 +250,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=1776767281"></script>
+  <script src="js/main.js?v=1776778683"></script>
 <a href="https://wa.me/34659003377" class="fab-wa" aria-label="WhatsApp Stazio" target="_blank" rel="noopener">
   <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3.4 8.5 3.4 15.3c0 2.4.7 4.6 1.9 6.6L3 29l7.4-2.2c1.9 1 4 1.6 6.2 1.6 7 0 12.6-5.5 12.6-12.3C29.2 8.2 23.6 3 16 3zm7.3 17.9c-.3.9-1.5 1.6-2.5 1.8-.7.1-1.5.2-4.4-.9-3.7-1.5-6.1-5.2-6.3-5.4-.2-.2-1.4-1.9-1.4-3.6 0-1.7.9-2.5 1.2-2.9.3-.3.7-.4 1-.4h.7c.2 0 .5 0 .8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.4-.5.6-.2.2-.4.4-.2.8.2.4.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.4.1.6.1.8-.1.2-.2.9-1.1 1.2-1.4.2-.4.5-.3.8-.2.3.1 2 .9 2.4 1.1.4.2.6.3.7.4.1.2.1 1-.3 1.9z"/></svg>
 </a>
