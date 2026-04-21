@@ -2640,6 +2640,32 @@ a.contact-info__value:hover { color: var(--warm-brown); }
   color: var(--ink-quiet);
 }
 
+/* Mobile: uniform card-style blocks so phone + email + office + languages all match visually */
+@media (max-width: 860px) {
+  .contact-info {
+    display: grid;
+    gap: 14px;
+  }
+  .contact-info__block {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 20px 16px;
+    margin: 0;
+    text-align: center;
+    background: var(--paper);
+  }
+  .contact-info__label { margin-bottom: 8px; }
+  .contact-info__value {
+    font-size: 17px;
+    line-height: 1.35;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    margin-bottom: 4px;
+  }
+  .contact-info__value--plain { font-size: 15px; }
+  .contact-info__hint { font-size: 11px; }
+}
+
 /* Form */
 .form { display: flex; flex-direction: column; gap: 24px; }
 .form__row { display: flex; flex-direction: column; gap: 8px; }
@@ -2805,6 +2831,10 @@ a.contact-info__value:hover { color: var(--warm-brown); }
 .property-card__image {
   position: relative;
   overflow: hidden;
+  border-radius: 20px;
+}
+.project-card__image {
+  border-radius: 20px;
 }
 .property-card__image > img {
   position: absolute;
@@ -3223,4 +3253,126 @@ a.contact-info__value:hover { color: var(--warm-brown); }
 /* "Home" link in the hamburger drawer — only visible on phone inside the menu */
 @media (min-width: 861px) {
   .nav__menu-mobile-only { display: none !important; }
+}
+
+/* Mobile nav centred logo + balanced row — EN/ES left · small TRI logo centre · IG + hamburger right */
+.nav__logo-mobile { display: none; }
+@media (max-width: 860px) {
+  /* Positioning context for EN/ES and logo.
+     nav__actions stays in flex flow (pushed right via margin-left:auto). */
+  .nav__inner {
+    position: relative;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 12px var(--gutter);
+  }
+  /* EN/ES pinned LEFT — absolute relative to .nav__inner (reset drawer styling that was pushing it down) */
+  .lang-toggle {
+    position: absolute !important;
+    left: var(--gutter) !important;
+    top: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+    z-index: 2;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    gap: 2px !important;
+    font-size: 12px !important;
+    justify-content: flex-start !important;
+  }
+  .lang-btn {
+    font-size: 13px !important;
+    padding: 4px 6px !important;
+    min-width: 0 !important;
+  }
+  .lang-btn + .lang-btn::before {
+    content: "·" !important;
+    margin-right: 2px;
+    color: var(--ink-quiet);
+  }
+  /* If the hamburger is open, the drawer styling still needs the older fixed-bottom pinning.
+     So ONLY apply the top-left abs positioning when the drawer is closed. */
+  .nav--open .lang-toggle {
+    position: fixed !important;
+    left: var(--gutter) !important;
+    right: var(--gutter) !important;
+    bottom: 80px !important;
+    top: auto !important;
+    transform: none !important;
+  }
+  /* TRI logo pinned CENTRE, tap → home */
+  .nav__logo-mobile {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .nav__logo-mobile img { height: 26px; width: auto; display: block; }
+  /* IG + hamburger group flows to the RIGHT inside nav__inner's flex */
+  .nav__actions {
+    position: static;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 0 0 auto;
+  }
+  /* hide "Contact us" pill on mobile — users get Contact through the drawer */
+  .nav__cta { display: none !important; }
+  /* IG + hamburger both 36×36 so they match */
+  .nav__ig, .nav__hamburger {
+    width: 36px; height: 36px;
+    padding: 0;
+    min-width: 0;
+    margin: 0;
+  }
+  .nav__ig svg { width: 18px; height: 18px; }
+}
+
+/* Home contact: two equal-size black panels (WhatsApp + Email) */
+.home-contact__actions--panels {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  max-width: 780px;
+  margin: 0 auto;
+}
+.home-contact__panel {
+  flex: 1 1 320px;
+  min-height: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px 22px;
+  text-align: center;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+.home-contact__panel-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.home-contact__panel-value {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 72;
+  font-size: 16px;
+  font-weight: 500;
+}
+@media (max-width: 560px) {
+  .home-contact__actions--panels { flex-direction: column; gap: 12px; }
+  .home-contact__panel { flex: 1 1 auto; width: 100%; }
+  .home-contact__panel-value { font-size: 15px; }
 }

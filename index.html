@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo+Black&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=1776767281" />
+  <link rel="stylesheet" href="css/style.css?v=1776772332" />
 
   <!-- seo-foundation:v1 -->
   <link rel="canonical" href="https://teneriferesortinvest.es/" />
@@ -39,6 +39,7 @@
       <a href="index.html" class="nav__logo">
         <span class="nav__wordmark">Tenerife Resort Invest</span>
       </a>
+      <a href="index.html" class="nav__logo-mobile" aria-label="Home"><img src="img/logo-dark.png" alt="TRI" /></a>
 
       <nav class="nav__menu"><a href="index.html" class="nav__menu-mobile-only is-current"><span class="lang-en">Home</span><span class="lang-es">Inicio</span></a>
         <a href="properties.html">Properties</a>
@@ -244,6 +245,31 @@
           </span>
         </div>
       </a>
+
+      <!-- Villa Nova — private luxury villa, Adeje -->
+      <a class="property-card" href="property-villa-nova.html">
+        <div class="property-card__image" data-prop="nova">
+          <img src="img/villa-nova-1.jpg" alt="Villa Nova" loading="lazy" />
+          <div class="property-card__badges">
+            <span class="badge badge--luxury"><span class="lang-en">Luxury</span><span class="lang-es">Lujo</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location">
+            <span class="lang-en">Adeje</span>
+            <span class="lang-es">Adeje</span>
+          </p>
+          <h3 class="property-card__title">Villa Nova</h3>
+          <p class="property-card__meta">
+            <span><span class="lang-en">Private villa · pool · panoramic views</span><span class="lang-es">Villa privada · piscina · vistas panorámicas</span></span>
+            <span class="property-card__price">€1,339,000</span>
+          </p>
+          <span class="property-card__link">
+            <span class="lang-en">See Villa Nova →</span>
+            <span class="lang-es">Ver Villa Nova →</span>
+          </span>
+        </div>
+      </a>
     </div>
 
     <div class="section-cta">
@@ -444,10 +470,15 @@
   <section class="home-contact">
     <div class="home-contact__inner">
       <p><span class="lang-en">No call centre, no auto-responder. Stazio answers his own phone.</span><span class="lang-es">Sin centro de llamadas, sin respuestas automáticas. Stazio contesta su propio teléfono.</span></p>
-      <div class="home-contact__actions">
-        <a href="https://wa.me/34659003377" class="btn btn--primary">WhatsApp</a>
-        <a href="tel:+34659003377" class="btn btn--ghost">+34 659 00 33 77</a>
-        <a href="mailto:teneriferesortinvest@gmail.com" class="btn btn--ghost">Email</a>
+      <div class="home-contact__actions home-contact__actions--panels">
+        <a href="https://wa.me/34659003377" class="btn btn--primary home-contact__panel">
+          <span class="home-contact__panel-label">WhatsApp</span>
+          <span class="home-contact__panel-value">+34 659 00 33 77</span>
+        </a>
+        <a href="mailto:teneriferesortinvest@gmail.com" class="btn btn--primary home-contact__panel">
+          <span class="home-contact__panel-label">Email</span>
+          <span class="home-contact__panel-value">teneriferesortinvest@gmail.com</span>
+        </a>
       </div>
     </div>
   </section>
