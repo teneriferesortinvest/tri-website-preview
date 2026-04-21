@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo+Black&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=1776779222" />
+  <link rel="stylesheet" href="css/style.css?v=1776784971" />
 
   <!-- seo-foundation:v1 -->
   <link rel="canonical" href="https://teneriferesortinvest.es/properties-for-sale/" />
@@ -55,13 +55,14 @@
   <section class="filters" id="propFilters">
     <button class="filters__toggle" id="propFiltersToggle" aria-expanded="false" aria-controls="propFiltersInner"><span><span class="lang-en">Filters</span><span class="lang-es">Filtros</span></span><span class="filters__toggle-chev">↓</span></button>
     <div class="filters__inner" id="propFiltersInner">
-      <div class="filter"><label class="filter__label"><span class="lang-en">Zone</span><span class="lang-es">Zona</span></label><select class="filter__select"><option>All</option><option>Adeje</option><option>La Caleta</option><option>Costa Adeje</option><option>Arona</option></select></div>
-      <div class="filter"><label class="filter__label"><span class="lang-en">Type</span><span class="lang-es">Tipo</span></label><select class="filter__select"><option>All</option><option>Villa</option><option>Apartment</option><option>Finca</option><option>Land</option></select></div>
-      <div class="filter"><label class="filter__label"><span class="lang-en">Price</span><span class="lang-es">Precio</span></label><select class="filter__select"><option>Any</option><option>Under €300K</option><option>€300K – €800K</option><option>€800K – €2M</option><option>€2M – €5M</option><option>€5M+</option></select></div>
-      <div class="filter"><label class="filter__label"><span class="lang-en">Bedrooms</span><span class="lang-es">Dormitorios</span></label><select class="filter__select"><option>Any</option><option>1+</option><option>2+</option><option>3+</option><option>4+</option><option>5+</option></select></div>
-      <div class="filter"><label class="filter__label"><span class="lang-en">Tier</span><span class="lang-es">Segmento</span></label><select class="filter__select"><option>All</option><option>Luxury €1M+</option><option>Mid-market</option><option>Land</option></select></div>
-      <div class="filter"><label class="filter__label"><span class="lang-en">Status</span><span class="lang-es">Estado</span></label><select class="filter__select"><option>All</option><option>Newly built</option><option>Resale</option><option>Renovated</option></select></div>
+      <div class="filter"><label class="filter__label"><span class="lang-en">Zone</span><span class="lang-es">Zona</span></label><select id="fZone" class="filter__select"><option>All</option><option>Adeje</option><option>La Caleta</option><option>Costa Adeje</option><option>Arona</option></select></div>
+      <div class="filter"><label class="filter__label"><span class="lang-en">Type</span><span class="lang-es">Tipo</span></label><select id="fType" class="filter__select"><option>All</option><option>Villa</option><option>Apartment</option><option>Finca</option><option>Land</option></select></div>
+      <div class="filter"><label class="filter__label"><span class="lang-en">Price</span><span class="lang-es">Precio</span></label><select id="fPrice" class="filter__select"><option>Any</option><option>Under €300K</option><option>€300K – €800K</option><option>€800K – €2M</option><option>€2M – €5M</option><option>€5M+</option></select></div>
+      <div class="filter"><label class="filter__label"><span class="lang-en">Bedrooms</span><span class="lang-es">Dormitorios</span></label><select id="fBeds" class="filter__select"><option>Any</option><option>1+</option><option>2+</option><option>3+</option><option>4+</option><option>5+</option></select></div>
+      <div class="filter"><label class="filter__label"><span class="lang-en">Tier</span><span class="lang-es">Segmento</span></label><select id="fTier" class="filter__select"><option>All</option><option>Luxury €1M+</option><option>Mid-market</option><option>Land</option></select></div>
+      <div class="filter"><label class="filter__label"><span class="lang-en">Status</span><span class="lang-es">Estado</span></label><select id="fStatus" class="filter__select"><option>All</option><option>Newly built</option><option>Resale</option><option>Renovated</option></select></div>
       <div class="filter__results"><span class="lang-en">Showing 18 homes</span><span class="lang-es">Mostrando 18 casas</span></div>
+      <button type="button" id="fClear" class="filter__clear" hidden><span class="lang-en">Clear all</span><span class="lang-es">Limpiar</span></button>
     </div>
   </section>
 
@@ -70,7 +71,7 @@
     <div class="property-grid">
 
       <!-- Villa Arizona (Macaronesia Nº 9) -->
-      <a class="property-card" href="property-villa-arizona.html">
+      <a class="property-card" href="property-villa-arizona.html" data-zones="adeje la-caleta" data-type="villa" data-price="6150000" data-beds="5" data-tier="luxury" data-status="new">
         <div class="property-card__image" data-prop="arizona">
           <img src="img/arizona.jpg" alt="Villa Arizona in La Caleta, Adeje" loading="lazy" />
           <div class="property-card__badges">
@@ -87,7 +88,7 @@
       </a>
 
       <!-- Villa Bali -->
-      <a class="property-card" href="property-villa-bali.html">
+      <a class="property-card" href="property-villa-bali.html" data-zones="adeje" data-type="villa" data-price="5500000" data-beds="4" data-tier="luxury" data-status="new">
         <div class="property-card__image" data-prop="bali">
           <img src="img/bali.jpg" alt="Villa Bali in Playa Paraíso, Adeje" loading="lazy" />
           <div class="property-card__badges">
@@ -104,7 +105,7 @@
       </a>
 
       <!-- Villa Nova -->
-      <a class="property-card" href="property-villa-nova.html">
+      <a class="property-card" href="property-villa-nova.html" data-zones="adeje" data-type="villa" data-price="1339000" data-beds="0" data-tier="luxury" data-status="resale">
         <div class="property-card__image" data-prop="nova">
           <img src="img/villa-nova-2.jpg" alt="Villa Nova — designer kitchen and dining, Adeje" loading="lazy" />
           <div class="property-card__badges">
@@ -120,7 +121,7 @@
       </a>
 
       <!-- Villa en la Florida -->
-      <a class="property-card" href="property-villa-florida.html">
+      <a class="property-card" href="property-villa-florida.html" data-zones="arona" data-type="villa" data-price="1050000" data-beds="4" data-tier="luxury" data-status="resale">
         <div class="property-card__image" data-prop="florida">
           <img src="img/villa-florida-1.jpg" alt="Villa en la Florida — chalet with pool, Arona" loading="lazy" />
           <div class="property-card__badges">
@@ -136,7 +137,7 @@
       </a>
 
       <!-- Veril del Duque -->
-      <a class="property-card" href="property-veril-del-duque.html">
+      <a class="property-card" href="property-veril-del-duque.html" data-zones="adeje la-caleta" data-type="apartment" data-price="580000" data-beds="1" data-tier="mid" data-status="renovated">
         <div class="property-card__image" data-prop="veril">
           <img src="img/veril.jpg" alt="Veril del Duque in La Caleta, Adeje" loading="lazy" />
           <div class="property-card__badges">
@@ -152,7 +153,7 @@
       </a>
 
       <!-- Penthouse Costa Adeje — 158 m², 3 bed · 3 bath, private rooftop -->
-      <a class="property-card" href="property-penthouse-costa-adeje.html">
+      <a class="property-card" href="property-penthouse-costa-adeje.html" data-zones="adeje costa-adeje" data-type="apartment" data-price="780000" data-beds="3" data-tier="mid" data-status="resale">
         <div class="property-card__image">
           <img src="img/penthouse-costa-adeje-1.jpg" alt="Penthouse in Costa Adeje, Fañabé — Atlantic view from the terrace" loading="lazy" />
           <div class="property-card__badges">
@@ -169,7 +170,7 @@
 
       <!-- Mane (Bruselas 7) -->
       <div class="property-card-wrap">
-        <a class="property-card" href="property-bruselas.html">
+        <a class="property-card" href="property-bruselas.html" data-zones="adeje costa-adeje" data-type="apartment" data-price="325000" data-beds="1" data-tier="mid" data-status="renovated">
           <div class="property-card__image" data-prop="mane">
           <img src="img/mane.jpg" alt="Apartment Av. Bruselas 7 in San Eugenio Bajo, Adeje" loading="lazy" />
             <div class="property-card__badges">
@@ -192,7 +193,7 @@
 
       <!-- Sebas (Alse Homes Apt 1) -->
       <div class="property-card-wrap">
-        <a class="property-card" href="property-sebas-apt1.html">
+        <a class="property-card" href="property-sebas-apt1.html" data-zones="adeje" data-type="apartment" data-price="295000" data-beds="1" data-tier="mid" data-status="new">
           <div class="property-card__image" data-prop="sebas">
           <img src="img/sebas-apt1.jpg" alt="Alse Homes Apt 1 in Villa de Adeje" loading="lazy" />
             <div class="property-card__badges">
@@ -214,7 +215,7 @@
       </div>
 
       <!-- Aqua Roque -->
-      <a class="property-card" href="property-aqua-roque.html">
+      <a class="property-card" href="property-aqua-roque.html" data-zones="adeje" data-type="villa" data-price="3390000" data-beds="4" data-tier="luxury" data-status="new">
         <div class="property-card__image">
           <img src="img/aqua-roque-2.jpg" alt="Aqua Roque — infinity pool with Atlantic view, Roque del Conde, Adeje" loading="lazy" />
           <div class="property-card__badges">
@@ -231,7 +232,7 @@
       </a>
 
       <!-- Riviera Verde -->
-      <a class="property-card" href="property-riviera-verde.html">
+      <a class="property-card" href="property-riviera-verde.html" data-zones="adeje costa-adeje" data-type="villa" data-price="0" data-beds="0" data-tier="luxury" data-status="new">
         <div class="property-card__image">
           <img src="img/riviera-verde-1.jpg" alt="Riviera Verde in San Eugenio Alto, Costa Adeje" loading="lazy" />
           <div class="property-card__badges">
@@ -248,7 +249,7 @@
       </a>
 
       <!-- ENA Luxury Homes -->
-      <a class="property-card" href="property-ena.html">
+      <a class="property-card" href="property-ena.html" data-zones="arona" data-type="apartment" data-price="600000" data-beds="1" data-tier="luxury" data-status="new">
         <div class="property-card__image">
           <img src="img/ena-1.jpg" alt="ENA Luxury Homes in Los Cristianos, Arona" loading="lazy" />
           <div class="property-card__badges">
@@ -265,7 +266,7 @@
       </a>
 
       <!-- Aqua Eight -->
-      <a class="property-card" href="property-aqua-eight.html">
+      <a class="property-card" href="property-aqua-eight.html" data-zones="arona" data-type="villa" data-price="2890000" data-beds="0" data-tier="luxury" data-status="new">
         <div class="property-card__image">
           <img src="img/aqua-eight-1.jpg" alt="Aqua Eight in Los Cristianos, Arona" loading="lazy" />
           <div class="property-card__badges">
@@ -283,7 +284,7 @@
       </a>
 
       <!-- Villa Hermosa -->
-      <a class="property-card" href="property-villa-hermosa.html">
+      <a class="property-card" href="property-villa-hermosa.html" data-zones="adeje" data-type="villa" data-price="1790000" data-beds="0" data-tier="luxury" data-status="new">
         <div class="property-card__image">
           <img src="img/villa-hermosa-1.jpg" alt="Villa Hermosa" loading="lazy" />
           <div class="property-card__badges">
@@ -300,7 +301,7 @@
       </a>
 
       <!-- Joyas del Duque -->
-      <a class="property-card" href="property-joyas-del-duque.html">
+      <a class="property-card" href="property-joyas-del-duque.html" data-zones="adeje costa-adeje" data-type="villa" data-price="2400000" data-beds="3" data-tier="luxury" data-status="resale">
         <div class="property-card__image">
           <img src="img/joyas-del-duque-1.jpg" alt="Joyas del Duque in Costa Adeje · El Duque" loading="lazy" />
           <div class="property-card__badges">
@@ -316,7 +317,7 @@
       </a>
 
       <!-- Terreno La Caleta — Parcela 76, Barranco del Inglés (2,532 m² / 1,509 edif.) -->
-      <a class="property-card" href="property-terreno-la-caleta.html">
+      <a class="property-card" href="property-terreno-la-caleta.html" data-zones="adeje la-caleta" data-type="land" data-price="2100000" data-beds="0" data-tier="land" data-status="">
         <div class="property-card__image">
           <img src="img/la-caleta-terreno-1.jpg" alt="Building plot above La Caleta, Barranco del Inglés, Adeje" loading="lazy" />
           <div class="property-card__badges">
@@ -332,7 +333,7 @@
       </a>
 
       <!-- Terreno Palm-Mar — 1,145 m² with approved project -->
-      <a class="property-card" href="property-terreno-palm-mar.html">
+      <a class="property-card" href="property-terreno-palm-mar.html" data-zones="arona" data-type="land" data-price="1260000" data-beds="0" data-tier="land" data-status="">
         <div class="property-card__image">
           <img src="img/palm-mar-terreno-1.jpg" alt="Building plot with approved project, Palm-Mar Arona" loading="lazy" />
           <div class="property-card__badges">
@@ -348,7 +349,7 @@
       </a>
 
       <!-- Villa Infiniti — built by Stazio, sold 2017 -->
-      <a class="property-card property-card--sold" href="property-villa-infiniti.html" aria-label="Villa Infiniti — sold 2017">
+      <a class="property-card property-card--sold" href="property-villa-infiniti.html" aria-label="Villa Infiniti — sold 2017" data-zones="adeje" data-type="villa" data-price="0" data-beds="4" data-tier="luxury" data-status="sold">
         <div class="property-card__image">
           <img src="img/villa-infiniti-1.jpg" alt="Villa Infiniti — completed by TRI 2017" loading="lazy" />
           <div class="property-card__badges">
@@ -365,7 +366,7 @@
       </a>
 
       <!-- Villa Malibu — built by Stazio, sold 2018 -->
-      <a class="property-card property-card--sold" href="property-villa-malibu.html" aria-label="Villa Malibu — sold 2018">
+      <a class="property-card property-card--sold" href="property-villa-malibu.html" aria-label="Villa Malibu — sold 2018" data-zones="adeje" data-type="villa" data-price="0" data-beds="4" data-tier="luxury" data-status="sold">
         <div class="property-card__image">
           <img src="img/villa-malibu-1.jpg" alt="Villa Malibu — completed by TRI 2018" loading="lazy" />
           <div class="property-card__badges">
@@ -381,11 +382,28 @@
         </div>
       </a>
 
+      <!-- La Maleza — built by Stazio 1999–2002, sold 2003, resold by TRI 2026 -->
+      <a class="property-card property-card--sold" href="property-la-maleza.html" aria-label="La Maleza — resold 2026" data-zones="rural-south" data-type="finca" data-price="0" data-tier="luxury" data-status="sold">
+        <div class="property-card__image">
+          <img src="img/la-maleza-1.jpg" alt="La Maleza — delivered by TRI 2002, resold 2026" loading="lazy" />
+          <div class="property-card__badges">
+            <span class="badge badge--sold">Resold · 2026</span>
+            <span class="badge badge--luxury"><span class="lang-en">Developed by TRI</span><span class="lang-es">Promovida por TRI</span></span>
+          </div>
+        </div>
+        <div class="property-card__body">
+          <p class="property-card__location"><span class="lang-en">Rural south Tenerife</span><span class="lang-es">Sur rural de Tenerife</span></p>
+          <h3 class="property-card__title">La Maleza</h3>
+          <p class="property-card__meta"><span><span class="lang-en">Canarian finca · clay floors · panoramic views</span><span class="lang-es">Finca canaria · suelos de barro · vistas panorámicas</span></span><span class="property-card__price"><span class="lang-en">Delivered 2002 · Resold 2026</span><span class="lang-es">Entregada 2002 · Revendida 2026</span></span></p>
+          <span class="property-card__link"><span class="lang-en">Developed by TRI in 2002. Resold by TRI in 2026.</span><span class="lang-es">Promovida por TRI en 2002. Revendida por TRI en 2026.</span></span>
+        </div>
+      </a>
+
     </div>
 
     <p class="properties__note">
-      <span class="lang-en">13 of 20 listings shown here. The other 7 appear after the WordPress migration — they exist in our inventory today; the site just hasn't caught up yet.</span>
-      <span class="lang-es">13 de 20 listados visibles. Los otros 7 aparecen después de la migración a WordPress — existen hoy en nuestro inventario; la web todavía no los ha recogido.</span>
+      <span class="lang-en">If you want something that's not on this page, ask — we probably know who has it.</span>
+      <span class="lang-es">Si busca algo que no está aquí, pregunte — probablemente sepamos quién lo tiene.</span>
     </p>
   </section>
 

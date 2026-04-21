@@ -1146,6 +1146,21 @@ html[data-lang="it"] .lang-de { display: none !important; }
   font-size: 13px;
   color: var(--ink-soft);
 }
+.filter__clear {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--ink);
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+.filter__clear[hidden] { display: none; }
+.filter__clear:hover { background: var(--ink); color: #fff; }
 .properties__note {
   max-width: 720px;
   margin: 60px auto 0;
@@ -1165,6 +1180,15 @@ html[data-lang="it"] .lang-de { display: none !important; }
   line-height: 1.6;
   color: var(--ink-soft);
   margin-bottom: 20px;
+}
+.project-grid--page .project-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.project-grid--page .project-card__body .link-underline {
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 /* About page blocks */
@@ -3471,22 +3495,28 @@ select.form__input {
   cursor: pointer;
 }
 
-/* ===== Desktop: hide "What we offer" panel (hero already covers it) + tighten gaps between accordions ===== */
+/* ===== Desktop: hide "What we offer" panel + tighten all gaps around accordions ===== */
 @media (min-width: 861px) {
-  /* Hide the "What we offer" accordion — second .home-row in the page (after the reel) */
-  .home-row:has(> summary .home-row__label > .lang-en:first-child:contains("What we offer")) { display: none; }
-  /* :contains isn't real CSS — target via explicit selector: the summary .lang-en that reads "What we offer" */
-  .home-row .home-row__label > .lang-en { /* no-op, kept for clarity */ }
-  /* Actual hide: use the structural position — the home-row whose summary contains "What we offer".
-     We add a data attr via JS alternative, but cleanest is explicit class below. */
+  /* Hide the What we offer panel on desktop (hero already covers it) */
+  .home-row--offer { display: none !important; }
 
-  /* Pull the Property sneak peek section tighter at the bottom when it's inside a home-row */
-  .home-row > section.properties { padding-bottom: 0 !important; padding-top: 24px !important; }
-  .home-row > section.properties .section-cta { padding: 16px var(--gutter) 24px !important; }
+  /* Hero should shrink to its content instead of filling the viewport */
+  .hero {
+    min-height: 0 !important;
+    padding-top: clamp(40px, 5vh, 60px) !important;
+    padding-bottom: clamp(32px, 4vh, 48px) !important;
+  }
+
+  /* Tighten sections inside home-row accordions */
+  .home-row > section.properties { padding: 0 !important; }
+  .home-row > section.properties .section-head { padding: 24px var(--gutter) 16px !important; }
+  .home-row > section.properties .section-cta  { padding: 16px var(--gutter) 24px !important; }
+  .home-row > section.projects   { padding: 0 !important; background: var(--paper) !important; }
+  .home-row > section.projects .section-head { padding: 24px var(--gutter) 16px !important; }
   .home-row > section.home-story { padding-bottom: 0 !important; }
   .home-row > section.home-offer { padding-bottom: 0 !important; }
-  .home-row > section.projects  { padding-bottom: 0 !important; padding-top: 24px !important; }
 
-  /* Hide the What we offer panel on desktop — match by its label text-agnostic way: it's the 2nd home-row after hero */
-  .home-row--offer { display: none !important; }
+  /* Keep accordion buttons clean and consistent, no extra vertical run-on */
+  .home-row + .home-row { margin-top: 8px !important; }
+  .home-row:first-of-type { margin-top: 16px !important; }
 }

@@ -353,6 +353,121 @@
   });
 })();
 
+/* ---------- properties filter ---------- */
+(() => {
+  const grid = document.querySelector('.property-grid');
+  if (!grid) return;
+  const selects = {
+    zone:   document.getElementById('fZone'),
+    type:   document.getElementById('fType'),
+    price:  document.getElementById('fPrice'),
+    beds:   document.getElementById('fBeds'),
+    tier:   document.getElementById('fTier'),
+    status: document.getElementById('fStatus'),
+  };
+  if (!selects.zone) return;
+  const counterEn = document.querySelector('.filter__results .lang-en');
+  const counterEs = document.querySelector('.filter__results .lang-es');
+  const clearBtn = document.getElementById('fClear');
+
+  const DEFAULTS = { zone: 'All', type: 'All', price: 'Any', beds: 'Any', tier: 'All', status: 'All' };
+  function anyActive() {
+    return Object.keys(selects).some(k => selects[k] && selects[k].value !== DEFAULTS[k]);
+  }
+
+  const ZONE_SLUG = {
+    'Adeje': 'adeje',
+    'La Caleta': 'la-caleta',
+    'Costa Adeje': 'costa-adeje',
+    'Arona': 'arona',
+  };
+  const TYPE_SLUG = {
+    'Villa': 'villa',
+    'Apartment': 'apartment',
+    'Finca': 'finca',
+    'Land': 'land',
+  };
+  const PRICE_RANGES = {
+    'Under €300K': [0, 299999],
+    '€300K – €800K': [300000, 800000],
+    '€800K – €2M': [800001, 2000000],
+    '€2M – €5M': [2000001, 5000000],
+    '€5M+': [5000001, Infinity],
+  };
+  const TIER_SLUG = {
+    'Luxury €1M+': 'luxury',
+    'Mid-market': 'mid',
+    'Land': 'land',
+  };
+  const STATUS_SLUG = {
+    'Newly built': 'new',
+    'Resale': 'resale',
+    'Renovated': 'renovated',
+  };
+
+  function apply() {
+    const z = selects.zone.value;
+    const t = selects.type.value;
+    const p = selects.price.value;
+    const b = selects.beds.value;
+    const ti = selects.tier.value;
+    const st = selects.status.value;
+    const cards = grid.querySelectorAll('.property-card');
+    let shown = 0;
+    cards.forEach(card => {
+      let ok = true;
+      // Zone
+      if (z && z !== 'All') {
+        const slug = ZONE_SLUG[z];
+        const zones = (card.getAttribute('data-zones') || '').split(/\s+/);
+        if (!slug || !zones.includes(slug)) ok = false;
+      }
+      // Type
+      if (ok && t && t !== 'All') {
+        const slug = TYPE_SLUG[t];
+        if (!slug || card.getAttribute('data-type') !== slug) ok = false;
+      }
+      // Price
+      if (ok && p && p !== 'Any') {
+        const [lo, hi] = PRICE_RANGES[p] || [0, Infinity];
+        const price = parseInt(card.getAttribute('data-price') || '0', 10);
+        if (!price || price < lo || price > hi) ok = false;
+      }
+      // Beds — strict: 0 = unknown/N/A, excluded when any min is set
+      if (ok && b && b !== 'Any') {
+        const min = parseInt(b, 10);
+        const beds = parseInt(card.getAttribute('data-beds') || '0', 10);
+        if (beds < min) ok = false;
+      }
+      // Tier
+      if (ok && ti && ti !== 'All') {
+        const slug = TIER_SLUG[ti];
+        if (!slug || card.getAttribute('data-tier') !== slug) ok = false;
+      }
+      // Status
+      if (ok && st && st !== 'All') {
+        const slug = STATUS_SLUG[st];
+        if (!slug || card.getAttribute('data-status') !== slug) ok = false;
+      }
+      const host = card.closest('.property-card-wrap') || card;
+      host.style.display = ok ? '' : 'none';
+      if (ok) shown++;
+    });
+    if (counterEn) counterEn.textContent = 'Showing ' + shown + ' home' + (shown === 1 ? '' : 's');
+    if (counterEs) counterEs.textContent = 'Mostrando ' + shown + ' casa' + (shown === 1 ? '' : 's');
+    if (clearBtn) clearBtn.hidden = !anyActive();
+  }
+
+  Object.values(selects).forEach(s => s && s.addEventListener('change', apply));
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      Object.keys(selects).forEach(k => { if (selects[k]) selects[k].value = DEFAULTS[k]; });
+      apply();
+    });
+  }
+  apply();
+})();
+
 /* ---------- hero scroll button: smooth scroll, no hash in URL ---------- */
 (() => {
   const link = document.getElementById('heroScroll');
