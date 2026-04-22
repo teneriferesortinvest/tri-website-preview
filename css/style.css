@@ -2980,8 +2980,13 @@ a.contact-info__value:hover { color: var(--warm-brown); }
   grid-template-columns: 1fr 1fr;
   gap: clamp(16px, 2vw, 28px);
 }
+.pdp-tours__grid--solo {
+  grid-template-columns: minmax(0, 720px);
+  justify-content: center;
+}
 @media (max-width: 720px) {
   .pdp-tours__grid { grid-template-columns: 1fr; }
+  .pdp-tours__grid--solo { grid-template-columns: 1fr; }
 }
 .pdp-tour-card {
   position: relative;
