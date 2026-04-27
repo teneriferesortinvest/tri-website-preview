@@ -1,0 +1,188 @@
+/* =====================================================================
+   Black Mass hero — TRI homepage v2
+   Brand v2 tokens; scoped under .bm-hero so it can't bleed into Houzez.
+   ===================================================================== */
+
+.bm-hero {
+  --bm-paper:        #f5f1e8;
+  --bm-ink:          #1a1a16;
+  --bm-ink-deepest:  #0a0a08;
+  --bm-rule:         #d8d2c2;
+
+  position: relative;
+  background: var(--bm-ink-deepest);
+  color: #ffffff;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ------------------------ in-hero sticky nav ------------------------ */
+.bm-hero__nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bm-ink-deepest);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 clamp(20px, 5vw, 48px);
+}
+@media (min-width: 768px) { .bm-hero__nav { height: 76px; padding: 0 clamp(32px, 4vw, 64px); } }
+
+.bm-hero__nav-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.bm-hero__lang {
+  display: inline-flex;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+.bm-hero__lang button {
+  background: transparent; border: 0; color: inherit; padding: 0;
+  font: inherit; letter-spacing: inherit; cursor: pointer;
+}
+.bm-hero__lang button[aria-pressed="true"] { color: #ffffff; }
+
+.bm-hero__menu {
+  display: none;
+  gap: clamp(20px, 3vw, 36px);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+@media (min-width: 768px) { .bm-hero__menu { display: inline-flex; } }
+.bm-hero__menu a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.bm-hero__menu a:hover { color: #ffffff; }
+
+.bm-hero__wordmark {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(11px, 2.4vw, 13px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+/* ------------------------ beat sections ------------------------ */
+.bm-beat {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  padding: 0 clamp(24px, 6vw, 96px);
+  position: relative;
+}
+
+.bm-beat__phrase {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(48px, 7.5vw, 112px);
+  font-weight: 400; /* Archivo Black is intrinsically heavy */
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  max-width: 18ch;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 1300ms cubic-bezier(0.19, 1, 0.22, 1),
+    transform 1300ms cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: opacity, transform;
+}
+@media (min-width: 768px) {
+  .bm-beat__phrase {
+    transition-duration: 1700ms;
+  }
+}
+
+.bm-beat.is-visible .bm-beat__phrase {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* tighter line for the closer */
+.bm-beat--close .bm-beat__phrase { max-width: 14ch; }
+
+/* ------------------------ CTA panel (beat 5) ------------------------ */
+.bm-beat--cta {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+}
+.bm-beat--cta .bm-beat__phrase {
+  font-size: clamp(28px, 4vw, 56px);
+  letter-spacing: -0.005em;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 24ch;
+}
+.bm-cta__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(20px, 3vw, 32px);
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition-property: opacity, transform, border-color;
+  transition-duration: 1300ms;
+}
+@media (min-width: 768px) { .bm-cta__link { transition-duration: 1700ms; } }
+.bm-beat--cta.is-visible .bm-cta__link {
+  opacity: 1;
+  transform: translateY(0);
+}
+.bm-cta__link:hover { border-color: #ffffff; }
+.bm-cta__arrow {
+  display: inline-block;
+  font-size: 0.8em;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.bm-cta__link:hover .bm-cta__arrow { transform: translateY(4px); }
+
+/* ------------------------ hard cut to cream ------------------------ */
+.bm-hardcut {
+  height: 0;
+  border: 0;
+  margin: 0;
+  /* literally nothing — the seam is the colour change between
+     <section.bm-hero> (#0a0a08) and the next element (#f5f1e8 cream).
+     This element exists only as a scroll anchor. */
+}
+
+/* ------------------------ reduced motion ------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .bm-beat__phrase,
+  .bm-cta__link {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ------------------------ small screens: tighten left padding,
+   smaller-than-clamp-min nav scaling ------------------------ */
+@media (max-width: 480px) {
+  .bm-beat { padding-left: 24px; padding-right: 24px; }
+  .bm-beat__phrase { max-width: 14ch; }
+}
