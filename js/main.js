@@ -26,6 +26,10 @@
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('is-active', btn.dataset.lang === lang);
     });
+    document.querySelectorAll('option[data-en]').forEach(opt => {
+      const t = opt.dataset[lang];
+      if (t) opt.textContent = t;
+    });
   }
 })();
 
