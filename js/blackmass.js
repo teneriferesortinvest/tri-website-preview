@@ -13,17 +13,20 @@
   if (reduceMotion) {
     beats.forEach(b => b.classList.add('is-visible'));
   } else if ('IntersectionObserver' in window) {
+    // One-shot reveal: once a beat is seen, it stays visible. The 2.6s
+    // mobile fade needs time to land, and re-arming on scroll-out caused
+    // the phrase to disappear when the user scrolled back on iOS.
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-        } else {
-          // re-arm so re-entry retriggers the animation
-          entry.target.classList.remove('is-visible');
+          io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.35 });
-    beats.forEach(b => io.observe(b));
+    }, { threshold: 0.2 });
+    beats.forEach(b => {
+      if (!b.classList.contains('is-visible')) io.observe(b);
+    });
   } else {
     // legacy fallback
     beats.forEach(b => b.classList.add('is-visible'));

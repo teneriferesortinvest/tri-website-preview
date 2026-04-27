@@ -3,18 +3,19 @@
    Brand v2 tokens; scoped under .bm-hero so it can't bleed into Houzez.
    ===================================================================== */
 
-/* Page-level scroll snap, scoped to the hero beats only.
-   `proximity` (not `mandatory`) so the browser doesn't force-snap to
-   the nearest target on initial load — it only assists when the user
-   is already close to a beat. Past beat 5, no snap points exist and
-   normal scrolling resumes through the cream content. */
+/* Page-level scroll behavior. Snap is desktop-only — iOS Safari's
+   handling of `scroll-snap-type: y proximity` interacts badly with
+   address-bar resize and momentum scroll, so we leave mobile to plain
+   native scrolling. */
 html {
-  scroll-snap-type: y proximity;
   scroll-behavior: smooth;
-  scroll-padding-top: 64px; /* account for the in-hero sticky nav */
+  scroll-padding-top: 64px;
 }
-@media (min-width: 768px) {
-  html { scroll-padding-top: 76px; }
+@media (min-width: 1024px) {
+  html {
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 76px;
+  }
 }
 
 .bm-hero {
