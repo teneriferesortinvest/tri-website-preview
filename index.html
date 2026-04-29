@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo+Black&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css?v=1776784971" />
+  <link rel="stylesheet" href="css/blackmass.css?v=1" />
   <link rel="icon" href="favicon.ico" />
 
   <!-- seo-foundation:v1 -->
@@ -33,6 +34,105 @@
   </script>
 </head>
 <body>
+
+  <!-- =========== BLACK MASS HERO (sticky pinned stage + 5 scroll triggers) =========== -->
+  <section class="bm-hero" id="black-mass-hero" aria-label="Tenerife Resort Invest manifesto">
+
+    <!-- The stage stays pinned to the viewport while the user scrolls;
+         only the active phrase swaps. Background never moves. -->
+    <div class="bm-stage" aria-live="polite">
+
+      <header class="bm-stage__nav" role="banner">
+        <div class="bm-stage__nav-inner">
+          <span class="bm-stage__wordmark">Tenerife Resort Invest</span>
+          <nav class="bm-stage__menu" aria-label="Primary">
+            <a href="properties.html"><span class="lang-en">Properties</span><span class="lang-es">Propiedades</span></a>
+            <a href="projects.html"><span class="lang-en">Projects</span><span class="lang-es">Proyectos</span></a>
+            <a href="about.html"><span class="lang-en">Our story</span><span class="lang-es">Nuestra historia</span></a>
+            <a href="contact.html"><span class="lang-en">Contact</span><span class="lang-es">Contacto</span></a>
+          </nav>
+          <div class="bm-stage__lang" role="group" aria-label="Language">
+            <button type="button" data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" data-lang="es" aria-pressed="false">ES</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="bm-stage__phrases">
+        <p class="bm-phrase is-active" data-beat="1">
+          <span class="bm-phrase__line">
+            <span class="lang-en">Houses in Tenerife have never been cheap.</span>
+            <span class="lang-es">Las casas en Tenerife nunca han sido baratas.</span>
+          </span>
+          <span class="bm-phrase__sub">
+            <span class="lang-en">South Tenerife villas, apartments and land.</span>
+            <span class="lang-es">South Tenerife villas, apartments and land.</span>
+          </span>
+        </p>
+        <p class="bm-phrase" data-beat="2">
+          <span class="bm-phrase__line">
+            <span class="lang-en">They've only ever been cheaper than tomorrow.</span>
+            <span class="lang-es">Solo han sido más baratas de lo que serán mañana.</span>
+          </span>
+          <span class="bm-phrase__sub">
+            <span class="lang-en">Forty-five years watching this coast price itself up.</span>
+            <span class="lang-es">Forty-five years watching this coast price itself up.</span>
+          </span>
+        </p>
+        <p class="bm-phrase" data-beat="3">
+          <span class="bm-phrase__line">
+            <span class="lang-en">My father has been selling houses on this coast since 1981. His one regret is the house he didn't buy.</span>
+            <span class="lang-es">Mi padre vende esta costa desde 1981. Su único arrepentimiento es la casa que no compró.</span>
+          </span>
+          <span class="bm-phrase__sub">
+            <span class="lang-en">A family agency. Two generations on the same coast.</span>
+            <span class="lang-es">A family agency. Two generations on the same coast.</span>
+          </span>
+        </p>
+        <p class="bm-phrase bm-phrase--close" data-beat="4">
+          <span class="bm-phrase__line">
+            <span class="lang-en">Buy the house.</span>
+            <span class="lang-es">No lo heredes.</span>
+          </span>
+          <span class="bm-phrase__sub">
+            <span class="lang-en">We help you find it, price it, and close it.</span>
+            <span class="lang-es">We help you find it, price it, and close it.</span>
+          </span>
+        </p>
+        <p class="bm-phrase bm-phrase--welcome" data-beat="5">
+          <span class="lang-en">Welcome to Tenerife Resort Invest.</span>
+          <span class="lang-es">Bienvenido a Tenerife Resort Invest.</span>
+        </p>
+      </div>
+
+      <!-- progress dots, sit at the bottom of the pinned stage -->
+      <div class="bm-stage__dots" aria-hidden="true">
+        <span class="bm-dot is-active" data-beat="1"></span>
+        <span class="bm-dot" data-beat="2"></span>
+        <span class="bm-dot" data-beat="3"></span>
+        <span class="bm-dot" data-beat="4"></span>
+        <span class="bm-dot" data-beat="5"></span>
+      </div>
+
+      <!-- subtle scroll hint, fades once user starts scrolling -->
+      <span class="bm-stage__hint" aria-hidden="true">
+        <span class="lang-en">Scroll</span><span class="lang-es">Desliza</span> ↓
+      </span>
+    </div>
+
+    <!-- 5 invisible scroll triggers, one per beat. They drive the active
+         phrase via IntersectionObserver. Each is 100dvh tall. -->
+    <div class="bm-trigger" data-beat="1" aria-hidden="true"></div>
+    <div class="bm-trigger" data-beat="2" aria-hidden="true"></div>
+    <div class="bm-trigger" data-beat="3" aria-hidden="true"></div>
+    <div class="bm-trigger" data-beat="4" aria-hidden="true"></div>
+    <div class="bm-trigger" data-beat="5" aria-hidden="true"></div>
+
+  </section>
+  <!-- =========== /BLACK MASS HERO ============ -->
+
+  <!-- hard cut anchor (cream content begins immediately below) -->
+  <div id="panels" class="bm-hardcut" aria-hidden="true"></div>
 
   <!-- =========== NAV =========== -->
   <header class="nav" id="site-nav">
@@ -675,6 +775,7 @@
   </footer>
 
   <script src="js/main.js?v=1776779222"></script>
+  <script src="js/blackmass.js?v=1" defer></script>
 <a href="https://wa.me/34659003377" class="fab-wa" aria-label="WhatsApp Stazio" target="_blank" rel="noopener">
   <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3.4 8.5 3.4 15.3c0 2.4.7 4.6 1.9 6.6L3 29l7.4-2.2c1.9 1 4 1.6 6.2 1.6 7 0 12.6-5.5 12.6-12.3C29.2 8.2 23.6 3 16 3zm7.3 17.9c-.3.9-1.5 1.6-2.5 1.8-.7.1-1.5.2-4.4-.9-3.7-1.5-6.1-5.2-6.3-5.4-.2-.2-1.4-1.9-1.4-3.6 0-1.7.9-2.5 1.2-2.9.3-.3.7-.4 1-.4h.7c.2 0 .5 0 .8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.4-.5.6-.2.2-.4.4-.2.8.2.4.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.4.1.6.1.8-.1.2-.2.9-1.1 1.2-1.4.2-.4.5-.3.8-.2.3.1 2 .9 2.4 1.1.4.2.6.3.7.4.1.2.1 1-.3 1.9z"/></svg>
 </a>
