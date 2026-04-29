@@ -35,60 +35,74 @@
 </head>
 <body>
 
-  <!-- =========== BLACK MASS HERO (manifesto entry) =========== -->
+  <!-- =========== BLACK MASS HERO (sticky pinned stage + 5 scroll triggers) =========== -->
   <section class="bm-hero" id="black-mass-hero" aria-label="Tenerife Resort Invest manifesto">
 
-    <header class="bm-hero__nav" role="banner">
-      <div class="bm-hero__nav-inner">
-        <span class="bm-hero__wordmark">Tenerife Resort Invest</span>
-        <nav class="bm-hero__menu" aria-label="Primary">
-          <a href="properties.html"><span class="lang-en">Properties</span><span class="lang-es">Propiedades</span></a>
-          <a href="projects.html"><span class="lang-en">Projects</span><span class="lang-es">Proyectos</span></a>
-          <a href="about.html"><span class="lang-en">Our story</span><span class="lang-es">Nuestra historia</span></a>
-          <a href="contact.html"><span class="lang-en">Contact</span><span class="lang-es">Contacto</span></a>
-        </nav>
-        <div class="bm-hero__lang" role="group" aria-label="Language">
-          <button type="button" data-lang="en" aria-pressed="true">EN</button>
-          <button type="button" data-lang="es" aria-pressed="false">ES</button>
+    <!-- The stage stays pinned to the viewport while the user scrolls;
+         only the active phrase swaps. Background never moves. -->
+    <div class="bm-stage" aria-live="polite">
+
+      <header class="bm-stage__nav" role="banner">
+        <div class="bm-stage__nav-inner">
+          <span class="bm-stage__wordmark">Tenerife Resort Invest</span>
+          <nav class="bm-stage__menu" aria-label="Primary">
+            <a href="properties.html"><span class="lang-en">Properties</span><span class="lang-es">Propiedades</span></a>
+            <a href="projects.html"><span class="lang-en">Projects</span><span class="lang-es">Proyectos</span></a>
+            <a href="about.html"><span class="lang-en">Our story</span><span class="lang-es">Nuestra historia</span></a>
+            <a href="contact.html"><span class="lang-en">Contact</span><span class="lang-es">Contacto</span></a>
+          </nav>
+          <div class="bm-stage__lang" role="group" aria-label="Language">
+            <button type="button" data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" data-lang="es" aria-pressed="false">ES</button>
+          </div>
         </div>
+      </header>
+
+      <div class="bm-stage__phrases">
+        <p class="bm-phrase is-active" data-beat="1">
+          <span class="lang-en">Houses in Tenerife have never been cheap.</span>
+          <span class="lang-es">Las casas en Tenerife nunca han sido baratas.</span>
+        </p>
+        <p class="bm-phrase" data-beat="2">
+          <span class="lang-en">They've only ever been cheaper than tomorrow.</span>
+          <span class="lang-es">Solo han sido más baratas de lo que serán mañana.</span>
+        </p>
+        <p class="bm-phrase" data-beat="3">
+          <span class="lang-en">My father has sold this coast since 1981. His one regret is the house he didn't buy.</span>
+          <span class="lang-es">Mi padre vende esta costa desde 1981. Su único arrepentimiento es la casa que no compró.</span>
+        </p>
+        <p class="bm-phrase bm-phrase--close" data-beat="4">
+          <span class="lang-en">Don't inherit it.</span>
+          <span class="lang-es">No lo heredes.</span>
+        </p>
+        <p class="bm-phrase bm-phrase--welcome" data-beat="5">
+          <span class="lang-en">Welcome to Tenerife Resort Invest.</span>
+          <span class="lang-es">Bienvenido a Tenerife Resort Invest.</span>
+        </p>
       </div>
-    </header>
 
-    <section class="bm-beat bm-beat--1 is-visible">
-      <h1 class="bm-beat__phrase">
-        <span class="lang-en">Houses in Tenerife have never been cheap.</span>
-        <span class="lang-es">Las casas en Tenerife nunca han sido baratas.</span>
-      </h1>
-    </section>
+      <!-- progress dots, sit at the bottom of the pinned stage -->
+      <div class="bm-stage__dots" aria-hidden="true">
+        <span class="bm-dot is-active" data-beat="1"></span>
+        <span class="bm-dot" data-beat="2"></span>
+        <span class="bm-dot" data-beat="3"></span>
+        <span class="bm-dot" data-beat="4"></span>
+        <span class="bm-dot" data-beat="5"></span>
+      </div>
 
-    <section class="bm-beat bm-beat--2">
-      <p class="bm-beat__phrase">
-        <span class="lang-en">They've only ever been cheaper than tomorrow.</span>
-        <span class="lang-es">Solo han sido más baratas de lo que serán mañana.</span>
-      </p>
-    </section>
+      <!-- subtle scroll hint, fades once user starts scrolling -->
+      <span class="bm-stage__hint" aria-hidden="true">
+        <span class="lang-en">Scroll</span><span class="lang-es">Desliza</span> ↓
+      </span>
+    </div>
 
-    <section class="bm-beat bm-beat--3">
-      <p class="bm-beat__phrase">
-        <span class="lang-en">My father has sold this coast since 1981. His one regret is the house he didn't buy.</span>
-        <span class="lang-es">Mi padre vende esta costa desde 1981. Su único arrepentimiento es la casa que no compró.</span>
-      </p>
-    </section>
-
-    <section class="bm-beat bm-beat--close bm-beat--4">
-      <p class="bm-beat__phrase">
-        <span class="lang-en">Don't inherit it.</span>
-        <span class="lang-es">No lo heredes.</span>
-      </p>
-    </section>
-
-    <section class="bm-beat bm-beat--cta">
-      <a class="bm-cta__link" href="#panels">
-        <span class="lang-en">Welcome to the Tenerife Resort Invest home page</span>
-        <span class="lang-es">Bienvenido a la página de Tenerife Resort Invest</span>
-        <span class="bm-cta__arrow" aria-hidden="true">↓</span>
-      </a>
-    </section>
+    <!-- 5 invisible scroll triggers, one per beat. They drive the active
+         phrase via IntersectionObserver. Each is 100dvh tall. -->
+    <div class="bm-trigger" data-beat="1" aria-hidden="true"></div>
+    <div class="bm-trigger" data-beat="2" aria-hidden="true"></div>
+    <div class="bm-trigger" data-beat="3" aria-hidden="true"></div>
+    <div class="bm-trigger" data-beat="4" aria-hidden="true"></div>
+    <div class="bm-trigger" data-beat="5" aria-hidden="true"></div>
 
   </section>
   <!-- =========== /BLACK MASS HERO ============ -->

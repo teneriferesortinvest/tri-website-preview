@@ -1,75 +1,75 @@
 /* =====================================================================
-   Black Mass hero — TRI homepage v2
-   Brand v2 tokens; scoped under .bm-hero so it can't bleed into Houzez.
+   Black Mass hero — sticky-pinned stage with phrase swap (House of
+   Ambrose mechanic). The stage stays put in the viewport while the
+   user scrolls; only the active phrase crossfades.
+
+   Structure:
+     .bm-hero           — wrapper, height = 5 × 100dvh (one per trigger)
+     .bm-stage          — position: sticky; top: 0; height: 100dvh
+     .bm-stage__phrases — absolute-positioned stack, one phrase visible
+     .bm-trigger        — invisible 100dvh blocks driving IO
+
+   Background never moves. Phrases crossfade 1.4s ease-out.
    ===================================================================== */
 
-/* Page-level scroll behavior. Snap is desktop-only — iOS Safari's
-   handling of `scroll-snap-type: y proximity` interacts badly with
-   address-bar resize and momentum scroll, so we leave mobile to plain
-   native scrolling. */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 64px;
-}
-@media (min-width: 1024px) {
-  html {
-    scroll-snap-type: y proximity;
-    scroll-padding-top: 76px;
-  }
-}
+/* page-level: smooth scroll only; no scroll-snap (mobile native scroll) */
+html { scroll-behavior: smooth; }
 
 .bm-hero {
   --bm-paper:        #f5f1e8;
-  --bm-ink:          #1a1a16;
   --bm-ink-deepest:  #0a0a08;
-  --bm-rule:         #d8d2c2;
 
   position: relative;
-  background: var(--bm-ink-deepest);
-  color: #ffffff;
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  overflow: hidden;
+  background: var(--bm-ink-deepest);
+  color: #ffffff;
   isolation: isolate;
+  /* total scroll = 5 viewport heights for beats + 1 tail viewport so the
+     final beat dwells on screen before the stage unsticks into cream */
+  height: 600dvh;
 }
 
-/* ------------------------ in-hero sticky nav ------------------------ */
-.bm-hero__nav {
+/* ----------------------------------------------------------- STAGE */
+.bm-stage {
   position: sticky;
   top: 0;
-  z-index: 50;
-  background: var(--bm-ink-deepest);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  height: 64px;
+  height: 100dvh;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: stretch;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* --- nav inside stage --- */
+.bm-stage__nav {
+  height: 56px;
   display: flex;
   align-items: center;
   padding: 0 clamp(20px, 5vw, 48px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
-@media (min-width: 768px) { .bm-hero__nav { height: 76px; padding: 0 clamp(32px, 4vw, 64px); } }
+@media (min-width: 768px) {
+  .bm-stage__nav { height: 72px; padding: 0 clamp(32px, 4vw, 64px); }
+}
 
-.bm-hero__nav-inner {
+.bm-stage__nav-inner {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
 }
-.bm-hero__lang {
-  display: inline-flex;
-  gap: 12px;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.18em;
+.bm-stage__wordmark {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(11px, 2.4vw, 13px);
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
+  color: #ffffff;
 }
-.bm-hero__lang button {
-  background: transparent; border: 0; color: inherit; padding: 0;
-  font: inherit; letter-spacing: inherit; cursor: pointer;
-}
-.bm-hero__lang button[aria-pressed="true"] { color: #ffffff; }
-
-.bm-hero__menu {
+.bm-stage__menu {
   display: none;
   gap: clamp(20px, 3vw, 36px);
   font-family: 'Inter', sans-serif;
@@ -77,135 +77,143 @@ html {
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
-@media (min-width: 768px) { .bm-hero__menu { display: inline-flex; } }
-.bm-hero__menu a {
-  color: rgba(255, 255, 255, 0.85);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.bm-hero__menu a:hover { color: #ffffff; }
+@media (min-width: 768px) { .bm-stage__menu { display: inline-flex; } }
+.bm-stage__menu a { color: rgba(255, 255, 255, 0.85); text-decoration: none; transition: color 0.2s; }
+.bm-stage__menu a:hover { color: #ffffff; }
 
-.bm-hero__wordmark {
-  font-family: 'Archivo Black', sans-serif;
-  font-size: clamp(11px, 2.4vw, 13px);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #ffffff;
+.bm-stage__lang {
+  display: inline-flex; gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
 }
+.bm-stage__lang button {
+  background: transparent; border: 0; color: inherit; padding: 0;
+  font: inherit; letter-spacing: inherit; cursor: pointer;
+}
+.bm-stage__lang button[aria-pressed="true"] { color: #ffffff; }
 
-/* ------------------------ beat sections ------------------------ */
-.bm-beat {
-  min-height: 100dvh;
+/* --- phrase stack --- */
+.bm-stage__phrases {
+  position: relative;
   display: flex;
   align-items: center;
   padding: 0 clamp(24px, 6vw, 96px);
-  position: relative;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  /* enough room above for nav, below for dots+hint */
+  min-height: 0;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-snap-type: none; scroll-behavior: auto; }
-}
-
-.bm-beat__phrase {
+.bm-phrase {
+  position: absolute;
+  inset: 0;
+  margin: auto 0;
+  display: flex;
+  align-items: center;
+  padding: 0 clamp(24px, 6vw, 96px);
   font-family: 'Archivo Black', sans-serif;
-  font-size: clamp(48px, 7.5vw, 112px);
-  font-weight: 400; /* Archivo Black is intrinsically heavy */
-  line-height: 0.98;
+  font-weight: 400;
+  font-size: clamp(40px, 7vw, 104px);
+  line-height: 1.0;
   letter-spacing: -0.015em;
   color: #ffffff;
-  max-width: 18ch;
-  margin: 0;
+  max-width: 22ch;
+  margin-block: 0;
   opacity: 0;
-  transform: translateY(56px);
+  transform: translateY(16px);
   transition:
-    opacity 2600ms cubic-bezier(0.22, 0.61, 0.36, 1),
-    transform 2600ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    opacity 1400ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 1400ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  pointer-events: none;
   will-change: opacity, transform;
 }
-@media (min-width: 768px) {
-  .bm-beat__phrase {
-    transition-duration: 3200ms;
-  }
-}
-
-.bm-beat.is-visible .bm-beat__phrase {
+.bm-phrase.is-active {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
-/* tighter line for the closer */
-.bm-beat--close .bm-beat__phrase { max-width: 14ch; }
-
-/* ------------------------ CTA panel (beat 5) ------------------------ */
-.bm-beat--cta {
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 24px;
-}
-.bm-beat--cta .bm-beat__phrase {
-  font-size: clamp(28px, 4vw, 56px);
-  letter-spacing: -0.005em;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 24ch;
-}
-.bm-cta__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  font-family: 'Archivo Black', sans-serif;
-  font-size: clamp(18px, 2.4vw, 28px);
-  letter-spacing: -0.01em;
-  color: #ffffff;
-  text-decoration: none;
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  opacity: 0;
-  transform: translateY(28px);
-  transition:
-    opacity 2600ms cubic-bezier(0.22, 0.61, 0.36, 1),
-    transform 2600ms cubic-bezier(0.22, 0.61, 0.36, 1),
-    border-color 0.3s ease;
-  max-width: 24ch;
-}
-@media (min-width: 768px) { .bm-cta__link { transition-duration: 3200ms; } }
-.bm-beat--cta.is-visible .bm-cta__link {
-  opacity: 1;
-  transform: translateY(0);
-}
-.bm-cta__link:hover { border-color: #ffffff; }
-.bm-cta__arrow {
-  display: inline-block;
-  font-size: 0.8em;
-  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-}
-.bm-cta__link:hover .bm-cta__arrow { transform: translateY(4px); }
-
-/* ------------------------ hard cut to cream ------------------------ */
-.bm-hardcut {
-  height: 0;
-  border: 0;
-  margin: 0;
-  /* literally nothing — the seam is the colour change between
-     <section.bm-hero> (#0a0a08) and the next element (#f5f1e8 cream).
-     This element exists only as a scroll anchor. */
-}
-
-/* ------------------------ reduced motion ------------------------ */
-@media (prefers-reduced-motion: reduce) {
-  .bm-beat__phrase,
-  .bm-cta__link {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-}
-
-/* ------------------------ small screens: tighten left padding,
-   smaller-than-clamp-min nav scaling ------------------------ */
+/* mobile: tighter line, smaller max-width */
 @media (max-width: 480px) {
-  .bm-beat { padding-left: 24px; padding-right: 24px; }
-  .bm-beat__phrase { max-width: 14ch; }
+  .bm-phrase {
+    font-size: clamp(36px, 9.5vw, 56px);
+    max-width: 16ch;
+    padding: 0 24px;
+  }
+}
+
+/* welcome line (final beat) — slightly smaller, warmer feel */
+.bm-phrase--welcome {
+  font-size: clamp(32px, 5.5vw, 80px) !important;
+  max-width: 18ch;
+}
+
+/* --- progress dots --- */
+.bm-stage__dots {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 max(24px, env(safe-area-inset-bottom)) 0;
+  margin-bottom: 18px;
+}
+.bm-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  transition: background 0.4s ease, transform 0.4s ease;
+}
+.bm-dot.is-active {
+  background: #ffffff;
+  transform: scale(1.4);
+}
+
+/* --- scroll hint --- */
+.bm-stage__hint {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  opacity: 1;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.bm-hero.has-scrolled .bm-stage__hint { opacity: 0; }
+
+/* ----------------------------------------------------------- TRIGGERS */
+/* Triggers are absolutely positioned inside .bm-hero so they don't add
+   to its flow height (which is fixed at 500dvh by .bm-hero). The sticky
+   stage takes the natural flow space; triggers overlay the scroll track
+   underneath. */
+.bm-trigger {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  pointer-events: none;
+  z-index: 0;
+}
+.bm-trigger[data-beat="1"] { top: 0; }
+.bm-trigger[data-beat="2"] { top: 100dvh; }
+.bm-trigger[data-beat="3"] { top: 200dvh; }
+.bm-trigger[data-beat="4"] { top: 300dvh; }
+.bm-trigger[data-beat="5"] { top: 400dvh; }
+
+/* ----------------------------------------------------------- HARD CUT */
+/* The bm-hero ends → the next element (cream nav / cream landing) starts.
+   Visual seam: black → cream, no transition. */
+
+/* ----------------------------------------------------------- a11y */
+@media (prefers-reduced-motion: reduce) {
+  .bm-phrase {
+    transition: none;
+    transform: none;
+  }
+  .bm-phrase.is-active { transform: none; }
 }
