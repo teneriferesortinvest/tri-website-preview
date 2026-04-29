@@ -108,7 +108,9 @@ html { scroll-behavior: smooth; }
   inset: 0;
   margin: auto 0;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   padding: 0 clamp(24px, 6vw, 96px);
   font-family: 'Archivo Black', sans-serif;
   font-weight: 400;
@@ -116,7 +118,6 @@ html { scroll-behavior: smooth; }
   line-height: 1.0;
   letter-spacing: -0.015em;
   color: #ffffff;
-  max-width: 22ch;
   margin-block: 0;
   opacity: 0;
   transform: translateY(16px);
@@ -132,12 +133,39 @@ html { scroll-behavior: smooth; }
   pointer-events: auto;
 }
 
+/* big-phrase line wrapper — keeps the dramatic 22ch wrap independent of the subtitle */
+.bm-phrase__line {
+  display: block;
+  max-width: 22ch;
+}
+
+/* subtitle: paper @ 55% alpha, Inter, sits under the phrase line on beats 1-4 (no subtitle on welcome) */
+.bm-phrase__sub {
+  display: block;
+  margin-top: clamp(20px, 2.5vw, 36px);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(15px, 1.05vw, 18px);
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: rgba(245, 241, 232, 0.55);
+  max-width: 36ch;
+}
+
 /* mobile: tighter line, smaller max-width */
 @media (max-width: 480px) {
   .bm-phrase {
     font-size: clamp(36px, 9.5vw, 56px);
-    max-width: 16ch;
     padding: 0 24px;
+  }
+  .bm-phrase__line {
+    max-width: 16ch;
+  }
+  .bm-phrase__sub {
+    font-size: 14px;
+    margin-top: 16px;
+    max-width: 26ch;
+    line-height: 1.5;
   }
 }
 
