@@ -346,71 +346,110 @@
   </details>
   <!-- /Projects -->
 
-  <!-- =========== WHY NOW =========== -->
+  <!-- =========== OUR MESSAGE =========== -->
   <details class="home-row">
-  <summary class="home-row__btn"><span class="home-row__label"><span class="lang-en">Why now</span><span class="lang-es">Por qué ahora</span></span></summary>
+  <summary class="home-row__btn"><span class="home-row__label"><span class="lang-en">Our message</span><span class="lang-es">Nuestro mensaje</span></span></summary>
   <section class="home-why">
     <div class="home-why__inner">
+      <p class="home-why__teaser">
+        <span class="lang-en">A short story about Tenerife — why these houses, why now.</span>
+        <span class="lang-es">Una breve historia sobre Tenerife — por qué estas casas, por qué ahora.</span>
+      </p>
+      <button type="button" class="btn btn--primary" id="ourMessageOpen">
+        <span class="lang-en">Read it →</span>
+        <span class="lang-es">Léelo →</span>
+      </button>
+    </div>
+  </section>
+  </details>
+  <!-- /Our message -->
 
-      <div class="home-why__beat">
-        <p class="home-why__line">
+  <!-- =========== OUR MESSAGE — BLACK MASS DIALOG =========== -->
+  <dialog id="ourMessageDialog" class="om-dialog" aria-labelledby="om-dialog-title">
+    <button class="om-dialog__close" id="ourMessageClose" type="button" aria-label="Close">×</button>
+    <div class="om-dialog__inner">
+      <h2 id="om-dialog-title" class="om-dialog__eyebrow">
+        <span class="lang-en">Our message</span>
+        <span class="lang-es">Nuestro mensaje</span>
+      </h2>
+
+      <div class="om-beat">
+        <p class="om-beat__line">
           <span class="lang-en">Houses in Tenerife have never been cheap.</span>
           <span class="lang-es">Las casas en Tenerife nunca han sido baratas.</span>
         </p>
-        <p class="home-why__sub">
+        <p class="om-beat__sub">
           <span class="lang-en">South Tenerife villas, apartments and land.</span>
           <span class="lang-es">Villas, pisos y terrenos del sur de Tenerife.</span>
         </p>
       </div>
 
-      <div class="home-why__beat">
-        <p class="home-why__line">
+      <div class="om-beat">
+        <p class="om-beat__line">
           <span class="lang-en">They've only ever been cheaper than tomorrow.</span>
           <span class="lang-es">Solo han sido más baratas de lo que serán mañana.</span>
         </p>
-        <p class="home-why__sub">
+        <p class="om-beat__sub">
           <span class="lang-en">Forty-five years watching this coast price itself up.</span>
           <span class="lang-es">Cuarenta y cinco años viendo esta costa subir de precio.</span>
         </p>
       </div>
 
-      <div class="home-why__beat">
-        <p class="home-why__line">
+      <div class="om-beat">
+        <p class="om-beat__line">
           <span class="lang-en">My father has been selling houses on this coast since 1981. His one regret is the house he didn't buy.</span>
           <span class="lang-es">Mi padre vende esta costa desde 1981. Su único arrepentimiento es la casa que no compró.</span>
         </p>
-        <p class="home-why__sub">
+        <p class="om-beat__sub">
           <span class="lang-en">A family agency. Two generations on the same coast.</span>
           <span class="lang-es">Una agencia familiar. Dos generaciones en la misma costa.</span>
         </p>
       </div>
 
-      <div class="home-why__beat">
-        <p class="home-why__line">
+      <div class="om-beat">
+        <p class="om-beat__line">
           <span class="lang-en">Buy the house.</span>
           <span class="lang-es">No lo heredes.</span>
         </p>
-        <p class="home-why__sub">
+        <p class="om-beat__sub">
           <span class="lang-en">We help you find it, price it, and close it.</span>
           <span class="lang-es">Te ayudamos a encontrarla, valorarla y cerrarla.</span>
         </p>
       </div>
 
-      <div class="home-why__actions">
-        <a href="https://wa.me/34659003377" class="btn btn--primary">
+      <div class="om-dialog__actions">
+        <a href="https://wa.me/34659003377" class="btn btn--primary btn--inverse">
           <span class="lang-en">Talk to Stazio</span>
           <span class="lang-es">Hablar con Stazio</span>
         </a>
-        <a href="properties.html" class="btn btn--ghost">
+        <a href="properties.html" class="btn btn--ghost btn--inverse">
           <span class="lang-en">See properties</span>
           <span class="lang-es">Ver propiedades</span>
         </a>
       </div>
-
     </div>
-  </section>
-  </details>
-  <!-- /Why now -->
+  </dialog>
+
+  <script>
+    (function() {
+      const dlg = document.getElementById('ourMessageDialog');
+      const open = document.getElementById('ourMessageOpen');
+      const close = document.getElementById('ourMessageClose');
+      if (!dlg || !open) return;
+      open.addEventListener('click', () => {
+        if (typeof dlg.showModal === 'function') dlg.showModal();
+        else dlg.setAttribute('open', '');
+      });
+      close.addEventListener('click', () => dlg.close());
+      dlg.addEventListener('click', (e) => {
+        const r = dlg.getBoundingClientRect();
+        if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) {
+          dlg.close();
+        }
+      });
+    })();
+  </script>
+  <!-- /Our message dialog -->
 
   <!-- =========== STORY + CONTACT PREVIEWS =========== -->
 
