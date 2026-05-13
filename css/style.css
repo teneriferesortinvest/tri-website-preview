@@ -3145,6 +3145,47 @@ a.contact-info__value:hover { color: var(--warm-brown); }
   .home-story__full .story-entry { margin-top: 8px; }
 }
 
+/* Why Tenerife — brand manifesto panel (demoted Black Mass beats) */
+.home-why {
+  padding: 48px var(--gutter);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.home-why__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.home-why__beat {
+  margin-bottom: 40px;
+}
+.home-why__beat:last-child {
+  margin-bottom: 0;
+}
+.home-why__line {
+  font-family: var(--serif);
+  font-size: clamp(18px, 1.6vw, 24px);
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+.home-why__sub {
+  font-family: var(--sans);
+  font-size: clamp(12px, 0.9vw, 13px);
+  letter-spacing: 0.04em;
+  color: var(--ink-quiet);
+  margin: 0;
+}
+.home-why__beat--close .home-why__line {
+  font-family: var(--script);
+  font-size: clamp(22px, 1.8vw, 28px);
+  color: var(--warm-brown);
+}
+@media (max-width: 860px) {
+  .home-why { padding: 32px var(--gutter); }
+  .home-why__beat { margin-bottom: 28px; }
+}
+
 /* Shrink language toggle on desktop, push flush right */
 @media (min-width: 861px) {
   .lang-toggle { font-size: 10px; gap: 2px; opacity: 0.7; }
