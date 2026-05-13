@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo+Black&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&family=Caveat:wght@400;500&display=optional" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=1778692567" />
+  <link rel="stylesheet" href="css/style.css?v=1778693016" />
   <link rel="icon" href="favicon.ico" />
 
   <!-- seo-foundation:v1 -->
@@ -362,96 +362,7 @@
     </div>
   </section>
   </details>
-  <!-- /Our message -->
-
-  <!-- =========== OUR MESSAGE — BLACK MASS DIALOG =========== -->
-  <dialog id="ourMessageDialog" class="om-dialog" aria-labelledby="om-dialog-title">
-    <button class="om-dialog__close" id="ourMessageClose" type="button" aria-label="Close">×</button>
-    <div class="om-dialog__inner">
-      <h2 id="om-dialog-title" class="om-dialog__eyebrow">
-        <span class="lang-en">Our message</span>
-        <span class="lang-es">Nuestro mensaje</span>
-      </h2>
-
-      <div class="om-beat">
-        <p class="om-beat__line">
-          <span class="lang-en">Houses in Tenerife have never been cheap.</span>
-          <span class="lang-es">Las casas en Tenerife nunca han sido baratas.</span>
-        </p>
-        <p class="om-beat__sub">
-          <span class="lang-en">South Tenerife villas, apartments and land.</span>
-          <span class="lang-es">Villas, pisos y terrenos del sur de Tenerife.</span>
-        </p>
-      </div>
-
-      <div class="om-beat">
-        <p class="om-beat__line">
-          <span class="lang-en">They've only ever been cheaper than tomorrow.</span>
-          <span class="lang-es">Solo han sido más baratas de lo que serán mañana.</span>
-        </p>
-        <p class="om-beat__sub">
-          <span class="lang-en">Forty-five years watching this coast price itself up.</span>
-          <span class="lang-es">Cuarenta y cinco años viendo esta costa subir de precio.</span>
-        </p>
-      </div>
-
-      <div class="om-beat">
-        <p class="om-beat__line">
-          <span class="lang-en">My father has been selling houses on this coast since 1981. His one regret is the house he didn't buy.</span>
-          <span class="lang-es">Mi padre vende esta costa desde 1981. Su único arrepentimiento es la casa que no compró.</span>
-        </p>
-        <p class="om-beat__sub">
-          <span class="lang-en">A family agency. Two generations on the same coast.</span>
-          <span class="lang-es">Una agencia familiar. Dos generaciones en la misma costa.</span>
-        </p>
-      </div>
-
-      <div class="om-beat">
-        <p class="om-beat__line">
-          <span class="lang-en">Buy the house.</span>
-          <span class="lang-es">Cómprala. No la heredes.</span>
-        </p>
-        <p class="om-beat__sub">
-          <span class="lang-en">We help you find it, price it, and close it.</span>
-          <span class="lang-es">Te ayudamos a encontrarla, valorarla y cerrarla.</span>
-        </p>
-      </div>
-
-      <div class="om-dialog__actions">
-        <a href="https://wa.me/34659003377" class="btn btn--primary btn--inverse">
-          <span class="lang-en">Talk to Stazio</span>
-          <span class="lang-es">Hablar con Stazio</span>
-        </a>
-        <a href="properties.html" class="btn btn--ghost btn--inverse">
-          <span class="lang-en">See properties</span>
-          <span class="lang-es">Ver propiedades</span>
-        </a>
-      </div>
-    </div>
-  </dialog>
-
-  <script>
-    (function() {
-      const dlg = document.getElementById('ourMessageDialog');
-      const open = document.getElementById('ourMessageOpen');
-      const close = document.getElementById('ourMessageClose');
-      if (!dlg || !open) return;
-      open.addEventListener('click', () => {
-        if (typeof dlg.showModal === 'function') dlg.showModal();
-        else dlg.setAttribute('open', '');
-      });
-      close.addEventListener('click', () => dlg.close());
-      // Backdrop click — clicks on the dialog itself (vs. its content) bubble with e.target === dlg
-      dlg.addEventListener('click', (e) => {
-        if (e.target === dlg) dlg.close();
-      });
-      // Manual ESC binding — covers the showModal() fallback path on Safari <15.4 / Firefox <98
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && dlg.hasAttribute('open')) dlg.close();
-      });
-    })();
-  </script>
-  <!-- /Our message dialog -->
+  <!-- /Our message · dialog markup lives at end of body so the .home-row + .home-row CSS adjacency stays intact -->
 
   <!-- =========== STORY + CONTACT PREVIEWS =========== -->
 
@@ -785,5 +696,91 @@
 <a href="https://wa.me/34659003377" class="fab-wa" aria-label="WhatsApp Stazio" target="_blank" rel="noopener">
   <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3.4 8.5 3.4 15.3c0 2.4.7 4.6 1.9 6.6L3 29l7.4-2.2c1.9 1 4 1.6 6.2 1.6 7 0 12.6-5.5 12.6-12.3C29.2 8.2 23.6 3 16 3zm7.3 17.9c-.3.9-1.5 1.6-2.5 1.8-.7.1-1.5.2-4.4-.9-3.7-1.5-6.1-5.2-6.3-5.4-.2-.2-1.4-1.9-1.4-3.6 0-1.7.9-2.5 1.2-2.9.3-.3.7-.4 1-.4h.7c.2 0 .5 0 .8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.4-.5.6-.2.2-.4.4-.2.8.2.4.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.4.1.6.1.8-.1.2-.2.9-1.1 1.2-1.4.2-.4.5-.3.8-.2.3.1 2 .9 2.4 1.1.4.2.6.3.7.4.1.2.1 1-.3 1.9z"/></svg>
 </a>
+
+<!-- =========== OUR MESSAGE — BLACK MASS DIALOG (relocated to end of body) =========== -->
+<dialog id="ourMessageDialog" class="om-dialog" aria-labelledby="om-dialog-title">
+  <button class="om-dialog__close" id="ourMessageClose" type="button" aria-label="Close">×</button>
+  <div class="om-dialog__inner">
+    <h2 id="om-dialog-title" class="om-dialog__eyebrow">
+      <span class="lang-en">Our message</span>
+      <span class="lang-es">Nuestro mensaje</span>
+    </h2>
+
+    <div class="om-beat">
+      <p class="om-beat__line">
+        <span class="lang-en">Houses in Tenerife have never been cheap.</span>
+        <span class="lang-es">Las casas en Tenerife nunca han sido baratas.</span>
+      </p>
+      <p class="om-beat__sub">
+        <span class="lang-en">South Tenerife villas, apartments and land.</span>
+        <span class="lang-es">Villas, pisos y terrenos del sur de Tenerife.</span>
+      </p>
+    </div>
+
+    <div class="om-beat">
+      <p class="om-beat__line">
+        <span class="lang-en">They've only ever been cheaper than tomorrow.</span>
+        <span class="lang-es">Solo han sido más baratas de lo que serán mañana.</span>
+      </p>
+      <p class="om-beat__sub">
+        <span class="lang-en">Forty-five years watching this coast price itself up.</span>
+        <span class="lang-es">Cuarenta y cinco años viendo esta costa subir de precio.</span>
+      </p>
+    </div>
+
+    <div class="om-beat">
+      <p class="om-beat__line">
+        <span class="lang-en">My father has been selling houses on this coast since 1981. His one regret is the house he didn't buy.</span>
+        <span class="lang-es">Mi padre vende esta costa desde 1981. Su único arrepentimiento es la casa que no compró.</span>
+      </p>
+      <p class="om-beat__sub">
+        <span class="lang-en">A family agency. Two generations on the same coast.</span>
+        <span class="lang-es">Una agencia familiar. Dos generaciones en la misma costa.</span>
+      </p>
+    </div>
+
+    <div class="om-beat">
+      <p class="om-beat__line">
+        <span class="lang-en">Buy the house.</span>
+        <span class="lang-es">Cómprala. No la heredes.</span>
+      </p>
+      <p class="om-beat__sub">
+        <span class="lang-en">We help you find it, price it, and close it.</span>
+        <span class="lang-es">Te ayudamos a encontrarla, valorarla y cerrarla.</span>
+      </p>
+    </div>
+
+    <div class="om-dialog__actions">
+      <a href="https://wa.me/34659003377" class="btn btn--primary btn--inverse">
+        <span class="lang-en">Talk to Stazio</span>
+        <span class="lang-es">Hablar con Stazio</span>
+      </a>
+      <a href="properties.html" class="btn btn--ghost btn--inverse">
+        <span class="lang-en">See properties</span>
+        <span class="lang-es">Ver propiedades</span>
+      </a>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  (function() {
+    const dlg = document.getElementById('ourMessageDialog');
+    const open = document.getElementById('ourMessageOpen');
+    const close = document.getElementById('ourMessageClose');
+    if (!dlg || !open) return;
+    open.addEventListener('click', () => {
+      if (typeof dlg.showModal === 'function') dlg.showModal();
+      else dlg.setAttribute('open', '');
+    });
+    close.addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', (e) => {
+      if (e.target === dlg) dlg.close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && dlg.hasAttribute('open')) dlg.close();
+    });
+  })();
+</script>
 </body>
 </html>
