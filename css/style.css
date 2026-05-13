@@ -3222,6 +3222,45 @@ a.contact-info__value:hover { color: var(--warm-brown); }
 }
 .om-beat { margin-bottom: 56px; }
 .om-beat:last-of-type { margin-bottom: 40px; }
+
+/* Beats slide in alternating left/right with stagger when dialog opens.
+   The [open] attribute on <dialog> only exists while showModal() is active,
+   so closing + reopening replays the animation. */
+@keyframes om-slide-in-left {
+  from { opacity: 0; transform: translateX(-48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes om-slide-in-right {
+  from { opacity: 0; transform: translateX(48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes om-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.om-dialog[open] .om-dialog__eyebrow {
+  animation: om-fade-up 0.5s ease-out both;
+}
+.om-dialog[open] .om-beat:nth-of-type(odd) {
+  animation: om-slide-in-left 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.om-dialog[open] .om-beat:nth-of-type(even) {
+  animation: om-slide-in-right 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.om-dialog[open] .om-beat:nth-of-type(1) { animation-delay: 0.15s; }
+.om-dialog[open] .om-beat:nth-of-type(2) { animation-delay: 0.40s; }
+.om-dialog[open] .om-beat:nth-of-type(3) { animation-delay: 0.65s; }
+.om-dialog[open] .om-beat:nth-of-type(4) { animation-delay: 0.90s; }
+.om-dialog[open] .om-dialog__actions {
+  animation: om-fade-up 0.5s ease-out 1.15s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .om-dialog[open] .om-dialog__eyebrow,
+  .om-dialog[open] .om-beat,
+  .om-dialog[open] .om-dialog__actions {
+    animation: none;
+  }
+}
 .om-beat__line {
   font-family: var(--display);
   font-size: clamp(28px, 3.6vw, 48px);
