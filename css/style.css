@@ -3691,7 +3691,7 @@ select.form__input {
   .home-row > section.home-story { padding-bottom: 0 !important; }
   .home-row > section.home-offer { padding-bottom: 0 !important; }
 
-  /* Keep accordion buttons clean and consistent, no extra vertical run-on */
-  .home-row + .home-row { margin-top: 8px !important; }
-  .home-row:first-of-type { margin-top: 16px !important; }
+  /* Generous spacing so each accordion reads as a distinct disclosure (not paired) */
+  .home-row + .home-row { margin-top: 32px !important; }
+  .home-row:first-of-type { margin-top: 32px !important; }
 }
