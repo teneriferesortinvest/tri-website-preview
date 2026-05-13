@@ -3181,9 +3181,17 @@ a.contact-info__value:hover { color: var(--warm-brown); }
   font-size: clamp(22px, 1.8vw, 28px);
   color: var(--warm-brown);
 }
+.home-why__actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
 @media (max-width: 860px) {
   .home-why { padding: 32px var(--gutter); }
   .home-why__beat { margin-bottom: 28px; }
+  .home-why__actions { margin-top: 8px; }
 }
 
 /* Shrink language toggle on desktop, push flush right */
