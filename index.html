@@ -409,7 +409,7 @@
       <div class="om-beat">
         <p class="om-beat__line">
           <span class="lang-en">Buy the house.</span>
-          <span class="lang-es">No lo heredes.</span>
+          <span class="lang-es">Cómprala. No la heredes.</span>
         </p>
         <p class="om-beat__sub">
           <span class="lang-en">We help you find it, price it, and close it.</span>
@@ -441,11 +441,13 @@
         else dlg.setAttribute('open', '');
       });
       close.addEventListener('click', () => dlg.close());
+      // Backdrop click — clicks on the dialog itself (vs. its content) bubble with e.target === dlg
       dlg.addEventListener('click', (e) => {
-        const r = dlg.getBoundingClientRect();
-        if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) {
-          dlg.close();
-        }
+        if (e.target === dlg) dlg.close();
+      });
+      // Manual ESC binding — covers the showModal() fallback path on Safari <15.4 / Firefox <98
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && dlg.hasAttribute('open')) dlg.close();
       });
     })();
   </script>

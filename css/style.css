@@ -3180,8 +3180,8 @@ a.contact-info__value:hover { color: var(--warm-brown); }
   color: #fff;
   width: 100vw;
   max-width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
   inset: 0;
   overflow-y: auto;
 }
