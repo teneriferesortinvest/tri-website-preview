@@ -3191,7 +3191,7 @@ a.contact-info__value:hover { color: var(--warm-brown); }
 
 /* Shrink language toggle on desktop, push flush right */
 @media (min-width: 861px) {
-  .lang-toggle { font-size: 10px; gap: 2px; opacity: 0.7; }
+  .lang-toggle { font-size: 10px; gap: 2px; opacity: 0.95; } /* was 0.7 — too dim with new --ink-quiet, dropped contrast below AA */
   .lang-btn { padding: 2px 4px; letter-spacing: 0.06em; font-size: 10px; }
   .lang-btn + .lang-btn::before { margin-right: 2px; }
   .nav__actions { gap: 12px; }
