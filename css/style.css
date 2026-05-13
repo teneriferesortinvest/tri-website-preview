@@ -3089,7 +3089,7 @@ a.contact-info__value:hover { color: var(--warm-brown); }
   transition: transform 0.25s ease;
 }
 .home-row[open] > summary .home-row__label::after { transform: rotate(180deg); }
-.home-row + .home-row { margin-top: 12px; }
+.home-row + .home-row { margin-top: 32px; }
 .home-row:first-of-type { margin-top: 32px; }
 @media (max-width: 860px) {
   .home-row > summary { font-size: 12px; padding: 16px 16px; letter-spacing: 0.16em; min-height: 44px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; }
