@@ -3173,7 +3173,7 @@ a.contact-info__value:hover { color: var(--warm-brown); }
   font-family: var(--sans);
   font-size: clamp(12px, 0.9vw, 13px);
   letter-spacing: 0.04em;
-  color: var(--ink-quiet);
+  color: var(--ink-soft);
   margin: 0;
 }
 .home-why__beat--close .home-why__line {
