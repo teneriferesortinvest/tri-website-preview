@@ -44,7 +44,7 @@
   --paper-deeper:  #ffffff;
   --ink:           #1a1a16;
   --ink-soft:      #44423c;
-  --ink-quiet:     #8a8678;
+  --ink-quiet:     #6e6a5d;  /* darker shade — passes WCAG AA (5.4:1) on white */
   --rule:          #ececec;
   --warm-brown:    #6b5d3f;
   --ink-deepest:   #0a0a08;
@@ -3175,11 +3175,6 @@ a.contact-info__value:hover { color: var(--warm-brown); }
   letter-spacing: 0.04em;
   color: var(--ink-soft);
   margin: 0;
-}
-.home-why__beat--close .home-why__line {
-  font-family: var(--script);
-  font-size: clamp(22px, 1.8vw, 28px);
-  color: var(--warm-brown);
 }
 .home-why__actions {
   display: flex;
